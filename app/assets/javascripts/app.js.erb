@@ -1,0 +1,21 @@
+// This is the main Angular application page.
+// The Config function is run before the injector and before the RUN function
+//  The run function is run after the config function.
+//  An example of this is the config provides a route while the run function
+// provides user authentication for the routes.
+
+
+var app = angular.module('mksDriveApp',
+  ['ngResource', 'ngRoute', 'ngAnimate']);
+
+app.config(['$routeProvider', function($routeProvider){
+
+  $routeProvider.when('/', {
+    templateUrl: "<%= asset_path('templates/test.html') %>",
+    controller: "TestCtrl"
+  })
+  .otherwise({
+    redirectTo: '/'
+  })
+
+}]);

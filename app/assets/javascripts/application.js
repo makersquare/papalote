@@ -12,5 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require foundation
+//= require angular
+//= require angular-resource
+//= require angular-animate
+//= require angular-route
+//= require angular-mocks
+//= require app
 //= require_tree .
+
+$(function(){ $(document).foundation(); });
