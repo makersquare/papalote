@@ -19,7 +19,7 @@ Go to `http://localhost:3000/#/` or `http://10.10.10.10:3000/#/` and the applica
 
 ## Git Workflow
 
-	This section will be in two parts, the first is merely a list of the commands that you will be using as well as an explanation of what they do.  The second part will be the typical workflow you should all follow which will limit the ammount of merge conflicts and other git related issues that can occur when working in a large team.
+This section will be in two parts, the first is merely a list of the commands that you will be using as well as an explanation of what they do.  The second part will be the typical workflow you should all follow which will limit the ammount of merge conflicts and other git related issues that can occur when working in a large team.
 
 ### Git Commands
 
@@ -55,7 +55,8 @@ Go to `http://localhost:3000/#/` or `http://10.10.10.10:3000/#/` and the applica
 	* It is **IMPERATIVE** that you **DO NOT** pull and merge (User1 Issue Branch) with (User2 Issue Branch), IE two feature branches,  this will taint the git repo and cause massive ammounts of merge conflicts
 
 ###### Here is a scenario
-	I have been tasked with creating a user login system.  Another developer has created the necessary backend omniauth connection.  The other developer has merged their branch into development.  My local dev branch currently **DOES NOT** have these changes and has a older version of the Dev Branch.
+
+I have been tasked with creating a user login system.  Another developer has created the necessary backend omniauth connection.  The other developer has merged their branch into development.  My local dev branch currently **DOES NOT** have these changes and has a older version of the Dev Branch.
 
 1. Update my local dev branch with the remote
 	* (I am currently in the development branch)
