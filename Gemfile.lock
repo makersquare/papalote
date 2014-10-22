@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actionmailer (4.1.6)
       actionpack (= 4.1.6)
@@ -75,7 +76,7 @@ GEM
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
-    mime-types (2.4.2)
+    mime-types (2.4.3)
     minitest (5.4.2)
     multi_json (1.10.1)
     pg (0.17.1)
@@ -100,6 +101,11 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.6)
       sprockets-rails (~> 2.0)
+    rails-assets-angular (1.3.0)
+    rails-assets-flow.js (2.6.2)
+    rails-assets-ng-flow (2.5.1)
+      rails-assets-angular (~> 1)
+      rails-assets-flow.js (~> 2)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -175,6 +181,7 @@ DEPENDENCIES
   pry-byebug
   rack-timeout
   rails (= 4.1.6)
+  rails-assets-ng-flow
   rails_12factor
   rspec-rails (~> 2.14.2)
   sass-rails (~> 4.0.3)

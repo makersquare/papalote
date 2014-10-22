@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+source 'https://rails-assets.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
@@ -22,6 +22,8 @@ gem 'jquery-rails'
 gem 'foundation-rails'
 gem 'angularjs-rails'
 gem 'foundation-icons-sass-rails'
+
+gem 'rails-assets-ng-flow'
 
 # might be necessary to resolve issues with angular and rails
 # gem 'ng-rails-csrf'
