@@ -103,9 +103,6 @@ I have been tasked with creating a user login system.  Another developer has cre
 12. DJ Daniels
 13. Pipe
 14. Kim Phamalote
-15. Jon Katz
 16. George Garabedian
-17. Kim Phamalote'
 18. Peng Gao
-19 JON rogozen
 20. Stephan Yu
