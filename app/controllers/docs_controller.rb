@@ -6,7 +6,6 @@ class DocsController < ApplicationController
   end
 
   def create
-    binding.pry
      @doc = Doc.new(doc_params)
 
     respond_to do |format|

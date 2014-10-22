@@ -1,8 +1,9 @@
 
 <div class="row">
   <div class="large-8 large-centered columns">
+    <p ng-show="saveComplete">Save Completed</p>
     <input type="text" ng-model="name">
-    <textarea rows="35" ng-model="contentText"></textarea>
+    <textarea rows="20" ng-model="contentText"></textarea>
     <button type="button" ng-click="saveDoc()">Save</button>
   </div>
 </div>
