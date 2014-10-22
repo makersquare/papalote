@@ -86,9 +86,9 @@ I have been tasked with creating a user login system.  Another developer has cre
 
 1. Shehzan Devani
 2. JON rogLOLzen
-3. Parag Dadhaniya
+3. Parag DaDudeWheresMyCarhaniya
 4. Daniel Olasky
-6. Jeff Louie
 5. Dev Sethi
+6. Jeff Louie
 200. Pipe
-404. Kim Phamalote'
+404. Kim Phamalote
