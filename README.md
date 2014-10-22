@@ -90,9 +90,9 @@ I have been tasked with creating a user login system.  Another developer has cre
 4. Daniel Olasky
 5. Dev Sethi
 6. Jeff Louie
-200. Pipe
-404. Kim Phamalote
-666. Jon Katz
-8. George Garabedian
-404. Kim Phamalote'
-1000. Peng Gao
+7. Pipe
+8. Kim Phamalote
+9. Jon Katz
+10. George Garabedian
+11. Peng Gao
+12. DJ Daniels
