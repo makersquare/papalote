@@ -40,7 +40,7 @@ This section will be in two parts, the first is merely a list of the commands th
 * `git add .`
 	* this adds every single file regardless if it has been changed or not
 * `git commit -m "commit message"`
-* `git rebase HEAD~#` 
+* `git rebase HEAD~#`
 	* `#` <- is a place holder for an integer
 	* this command will allow you to squash commits
 	* say we have a feature branch and have made 20 commits to the feature branch, the feature is completed and ready to merge into development
@@ -87,17 +87,5 @@ I have been tasked with creating a user login system.  Another developer has cre
 1. Shehzan Devani
 2. JON rogozen
 3. Parag Dadhaniya
-
-
-
-
-
-
-
-
-
-
-
-
 09. Daniel Olasky
-
+5. Dev Sethi
