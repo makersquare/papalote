@@ -77,6 +77,11 @@ I have been tasked with creating a user login system.  Another developer has cre
 	* `git pull --rebase origin development`
 	* `git checkout <feature_branch>`
 	* `git rebase development` (if there are merge conflicts, you will fix it here)
+	* IF you have a merge conflict, do the following:
+	* Fix the files that have the conflicts
+	* `git add <file-name>`
+	* `git rebase --continue`
+	* (repeat the last 3 steps as necessary)
 9. `git checkout development`
 10. `git merge <feature_branch>`
 11. `git push origin development`
