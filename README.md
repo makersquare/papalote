@@ -95,7 +95,6 @@ I have been tasked with creating a user login system.  Another developer has cre
 4. Daniel Olasky
 5. Dev Sethi
 6. Jeff Louie
-7. Pipe
 8. Kim Phamalote
 9. Jon Katz
 10. George Garabedian
@@ -103,6 +102,4 @@ I have been tasked with creating a user login system.  Another developer has cre
 12. DJ Daniels
 13. Pipe
 14. Kim Phamalote
-16. George Garabedian
-18. Peng Gao
-20. Stephan Yu
+15. Stephan Yu
