@@ -81,3 +81,7 @@ I have been tasked with creating a user login system.  Another developer has cre
 10. `git merge <feature_branch>`
 11. `git push origin development`
 12. You can now delete your feature branch - `git branch -d <feature_branch>`
+
+## Team Members
+
+1. Shehzan Devani
