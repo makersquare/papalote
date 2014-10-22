@@ -1,4 +1,5 @@
 console.log('loaded doc-controller.js');
+<<<<<<< HEAD
 app.controller('DocController', ['$scope','Doc', '$timeout', function($scope, Doc, $timeout){
   $scope.saveComplete = false;
   $scope.saveDoc = function(doc) {
@@ -10,5 +11,5 @@ app.controller('DocController', ['$scope','Doc', '$timeout', function($scope, Do
   };
   $scope.newDoc = function () {
     $scope.doc = new Doc();
-  }
+  };
 }]);

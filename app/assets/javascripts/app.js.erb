@@ -14,9 +14,9 @@ app.config(['$routeProvider', function($routeProvider){
     templateUrl: "<%= asset_path('templates/test.html') %>",
     controller: "TestCtrl"
   })
-  .when('/files', {
-    templateUrl: "<%= asset_path('templates/file-view.html') %>",
-    controller: "FileController"
+  .when('/docs', {
+    templateUrl: "<%= asset_path('templates/doc-view.html') %>",
+    controller: "DocController"
   })
   .otherwise({
     redirectTo: '/'
