@@ -101,5 +101,4 @@ I have been tasked with creating a user login system.  Another developer has cre
 11. Peng Gao
 12. DJ Daniels
 13. Pipe
-14. Kim Phamalote
-15. Stephan Yu
+14. Stephan Yu
