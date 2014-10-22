@@ -67,13 +67,17 @@ I have been tasked with creating a user login system.  Another developer has cre
 3. Test!!!!!
 4. Code!!!!!
 5. Test!!!!!
-6. `git rebase HEAD~#` (from feature branch)
+6. Get your code peer reviewed - this is mandatory!
+7. `git rebase HEAD~#` (from feature branch)
 	* squash our commits into a single one as to not clutter the log history
-7. Check for changes on the remote
+8. Update your branch with changes from the development branch
 	* `git fetch` (from feature, this will work for all branches in the repo regardless of where you currently are)
-	* IF Development has changed go to dev branch and update it with a rebase
-	* Once Dev is current go back to feature branch
-	* `git merge master`
-8. `git checkout master`
-9. `git rebase <feature_branch>`
-10. You can now delete your feature branch, your updated
+	* IF Development has changed run the following to update
+	* `git checkout development`
+	* `git pull --rebase origin development`
+	* `git checkout <feature_branch>`
+	* `git rebase development` (if there are merge conflicts, you will fix it here)
+9. `git checkout development`
+10. `git merge <feature_branch>`
+11. `git push origin development`
+12. You can now delete your feature branch - `git branch -d <feature_branch>`
