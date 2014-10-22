@@ -3,16 +3,16 @@ development:
   encoding: unicode
   database: mksdrive-dev
   pool: 5
-  username: alpha1
-  password:
+  # username: alpha1
+  # password:
 
 test:
   adapter: postgresql
   encoding: unicode
   database: mksdrive-test
   pool: 5
-  username: alpha1
-  password:
+  # username: alpha1
+  # password:
 
 production:
   adapter: postgresql
