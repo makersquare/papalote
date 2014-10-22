@@ -3,21 +3,21 @@ development:
   encoding: unicode
   database: mksdrive-dev
   pool: 5
-  # username: alpha1
-  # password:
+  username: 
+  password:
 
 test:
   adapter: postgresql
   encoding: unicode
   database: mksdrive-test
   pool: 5
-  # username: alpha1
-  # password:
+  username: 
+  password:
 
 production:
   adapter: postgresql
   encoding: unicode
   database: mksdrive-production
   pool: 5
-  username: alpha1
+  username: 
   password:
