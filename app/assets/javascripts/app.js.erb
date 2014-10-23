@@ -23,8 +23,7 @@ app.config(['$routeProvider', function($routeProvider){
     controller: "DocController"
   })
   .when('/test', {
-    templateUrl: "<%= asset_path('templates/test-upload.html.erb') %>",
-    controller: "UploadController"
+    templateUrl: "<%= asset_path('templates/test-upload.html.erb') %>"
   })
   .otherwise({
     redirectTo: '/'
@@ -32,9 +31,9 @@ app.config(['$routeProvider', function($routeProvider){
 
 }]);
 
-app.config(['flowFactoryProvider', function(flowFactoryProvider){
-  flowFactoryProvider.defaults{
-    target: '/docs',
-    testChunks: false
-  }
-}]);
+// app.config(['flowFactoryProvider', function(flowFactoryProvider){
+//   flowFactoryProvider.defaults = {
+//     target: '/docs',
+//     testChunks: false
+//   }
+// }]);
