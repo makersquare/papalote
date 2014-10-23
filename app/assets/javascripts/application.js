@@ -19,6 +19,8 @@
 //= require angular-route
 //= require angular-mocks
 //= require app
+//= require flow
+//= require ng-flow
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

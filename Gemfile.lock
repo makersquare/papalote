@@ -181,6 +181,7 @@ DEPENDENCIES
   pry-byebug
   rack-timeout
   rails (= 4.1.6)
+  rails-assets-flow.js
   rails-assets-ng-flow
   rails_12factor
   rspec-rails (~> 2.14.2)
