@@ -12,11 +12,13 @@ class FoldersController < ApplicationController
 
   def create
     @folder = Folder.new(folder_params)
-
-    if @folder.save
-      format.json { render :show }
-    else
-      format.json { render json: @folder.errors }
+    respond_to do |format|
+      if @folder.save
+        format.html { redirect_to @folder, notice: "Folder was successfully created." }
+        format.json { render json: @folder}
+      else
+        format.json { render json: @folder.errors }
+      end
     end
   end
 
