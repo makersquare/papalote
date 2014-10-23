@@ -3,5 +3,5 @@ app.controller('NewFolderController', ['$scope', 'Folder',
     $scope.create = function(name) {
       Folder.createFolder(name);
     },
-    $scope.folder_name = "HEY Daniel";
+    $scope.folder_name = "";
 }]);
