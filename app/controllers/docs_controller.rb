@@ -13,7 +13,6 @@ class DocsController < ApplicationController
       content: params['file'].read
     }
     
-    
     @doc = Doc.new(new_doc)
 
     binding.pry
