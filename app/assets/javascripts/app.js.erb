@@ -8,9 +8,9 @@
 var app = angular.module('mksDriveApp',
   ['ngResource', 'ngRoute', 'ngAnimate', 'flow']);
 
-app.config(['$routeProvider', function($routeProvider){
+app.config(["$routeProvider", function($routeProvider){
 
-  $routeProvider.when('/', {
+  $routeProvider.when("/", {
     templateUrl: "<%= asset_path('templates/test.html') %>",
     controller: "TestCtrl"
   })
@@ -25,12 +25,16 @@ app.config(['$routeProvider', function($routeProvider){
   .when('/test', {
     templateUrl: "<%= asset_path('templates/test-upload.html.erb') %>"
   })
-  .when('/folders', {
-    templateUrl: "<%= asset_path('templates/folder-view.html') %>",
-    controller: "FolderController"
+  .when("/folder/new", {
+    templateUrl: "<%= asset_path('templates/new-folder-view.html') %>",
+    controller: "NewFolderController"
+  })
+  .when("/folder/:id", {
+    templateUrl: "<%= asset_path('templates/show-folder-view.html') %>",
+    controller: "NewFolderController"
   })
   .otherwise({
-    redirectTo: '/'
+    redirectTo: "/"
   })
 
 }]);
