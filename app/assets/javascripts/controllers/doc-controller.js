@@ -1,15 +1,16 @@
-console.log('loaded doc-controller.js');
-app.controller('DocController', ['$scope','Doc', '$timeout', '$route', '$location', function($scope, Doc, $timeout, $route, $location){
+app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocService',
+  function($scope, Doc, $timeout, $route, DocService) {
   $scope.doc = Doc.get({id: $route.current.params.id});
+  $scope.titleEditDisable = true;
   $scope.saveComplete = false;
   $scope.saveDoc = function(doc) {
-    Doc.update(doc);
+    DocService.updateDoc(doc);
     $scope.saveComplete = true;
-    $timeout(function(){
+    $timeout(function() {
       $scope.saveComplete = false;
     }, 5000);
   };
   $scope.newDoc = function () {
-    $location.path('/docs/new');
+    DocService.newDoc();
   };
 }]);

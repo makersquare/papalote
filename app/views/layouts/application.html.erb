@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
@@ -24,7 +23,7 @@
       <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="right">
-          <li class="active"><a href="#">Right Button Active</a></li>
+          <li class="active"><a href="#/docs/new">Create New File</a></li>
           <li class="has-dropdown">
             <a href="#">Right Button Dropdown</a>
             <ul class="dropdown">

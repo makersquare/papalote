@@ -1,11 +1,10 @@
-console.log('loaded doc-new-controller.js');
-app.controller('DocNewController', ['$scope','Doc', '$timeout', '$route', '$location', function($scope, Doc, $timeout, $route, $location){
+app.controller('DocNewController', ['$scope','Doc', '$timeout', '$route', 'DocService',
+  function($scope, Doc, $timeout, $route, DocService) {
   $scope.saveComplete = false;
+  $scope.titleEditDisable = false;
   $scope.doc = new Doc();
   $scope.saveDoc = function(doc) {
-    Doc.save(doc, function(data) {
-      $location.path('/docs/' + data.id);
-    });
+    DocService.newDocSave(doc);
   };
   $scope.newDoc = function () {
     $scope.doc = new Doc();

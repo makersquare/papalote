@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   root 'static_page#index'
 
   resources :folders, only: [:index, :show, :create, :update, :destroy], defaults: {format: :json}
-  resources :docs
+  resources :docs, defaults: {format: :json}
 
 end
