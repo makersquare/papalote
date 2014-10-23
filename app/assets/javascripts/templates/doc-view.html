@@ -1,24 +1,3 @@
-<style type="text/css">
-   #content{
-      height: 300px;
-      padding-top: 2px;
-   }
-   .textAreaWithLines{
-      font-family:courier;
-      border:1px solid black;
-
-   }
-   .textAreaWithLines textarea,.textAreaWithLines div{
-      border:0px;
-      line-height:120%;
-      font-size:12px;
-   }
-   .lineObj{
-      color:black;
-      font-size: 15px;
-   }
-   </style>
-
 <div class="row">
   <div class="large-8 large-centered columns">
     <button type="button" ng-click="newDoc()">New</button>
@@ -31,6 +10,9 @@
 <div class='row'>
   <div class="large-8 large-centered columns">
     <label for="content">Content:</label>
-    <textarea id="content" rows="20" ng-model="doc.content" value='{{doc.content}}'></textarea>
+    <div class="textAreaWithLines">
+      <div id="lineObj">1<br>2<br>3<br>4<br>5<br></div>
+    <textarea id="content" rows="20" ng-model="doc.content" class="ng-pristine ng-untouched ng-valid"></textarea>
   </div>
+</div>
 </div>
