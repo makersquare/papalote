@@ -6,7 +6,7 @@
 
 
 var app = angular.module('mksDriveApp',
-  ['ngResource', 'ngRoute', 'ngAnimate']);
+  ['ngResource', 'ngRoute', 'ngAnimate', 'flow']);
 
 app.config(['$routeProvider', function($routeProvider){
 
@@ -22,8 +22,18 @@ app.config(['$routeProvider', function($routeProvider){
     templateUrl: "<%= asset_path('templates/doc-view.html') %>",
     controller: "DocController"
   })
+  .when('/test', {
+    templateUrl: "<%= asset_path('templates/test-upload.html.erb') %>"
+  })
   .otherwise({
     redirectTo: '/'
   })
 
 }]);
+
+// app.config(['flowFactoryProvider', function(flowFactoryProvider){
+//   flowFactoryProvider.defaults = {
+//     target: '/upload',
+//     permanentErrors: [404, 500, 501]
+//   };
+// }])
