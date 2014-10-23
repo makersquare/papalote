@@ -1,6 +1,8 @@
 app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocService',
   function($scope, Doc, $timeout, $route, DocService) {
-  $scope.doc = Doc.get({id: $route.current.params.id});
+  $scope.doc = Doc.get({id: $route.current.params.id}, function() {
+    DocService.addLineNumbers(2, 'content');
+  });
   $scope.titleEditDisable = true;
   $scope.saveComplete = false;
   $scope.saveDoc = function(doc) {
