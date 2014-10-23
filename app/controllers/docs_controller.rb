@@ -1,4 +1,6 @@
 class DocsController < ApplicationController
+  require 'tempfile'
+
   before_action :set_doc, only: [:show, :update, :destroy]
 
   def show
@@ -6,8 +8,15 @@ class DocsController < ApplicationController
   end
 
   def create
-      binding.pry
-     @doc = Doc.new(doc_params)
+    new_doc =  {
+      name: params['file'].original_filename,
+      content: params['file'].read
+    }
+    
+    
+    @doc = Doc.new(new_doc)
+
+    binding.pry
 
     respond_to do |format|
       if @doc.save
