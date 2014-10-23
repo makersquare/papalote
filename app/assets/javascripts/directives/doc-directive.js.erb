@@ -1,0 +1,50 @@
+// This directive is used for doc-view.html
+// 
+app.directive('docDirective', ['Doc', '$route', function(Doc, $route) {
+  return {
+    templateUrl: "<%= asset_path('assets/templates/doc-textarea.html') %>",
+    scope: false,
+    // link contains all the functions that manipulate the DOM
+    link: function(scope, element, attrs) {
+      element.bind("keydown", function(event) {
+        var textarea = document.getElementById('content');
+        // when user press 'tab' 
+        if (event.which === 9) {
+          var start = textarea.selectionStart;
+          var end = textarea.selectionEnd;
+          var value = textarea.value;
+          textarea.value = value.substring(0, start) + "\t" + value.substring(end);
+          textarea.selectionStart = textarea.selectionEnd = start + 1;
+          event.preventDefault();
+        }
+        var lineObj = document.getElementById('lineObj');
+        textarea.onkeydown = function() { positionLineObj(lineObj,textarea); };
+        textarea.onmousedown = function() { positionLineObj(lineObj,textarea); };
+        textarea.onscroll = function() { positionLineObj(lineObj,textarea); };
+        var positionLineObj = function(obj,textarea) {
+          obj.style.top = (textarea.scrollTop * -1 + 2) + 'px';
+        }
+      });
+
+      scope.changeText = function() {
+        scope.lineNumber = scope.doc.content.split('\n').length;
+        var string = '';
+        for (var i = 1;i <= scope.lineNumber;i++) {
+          string += '<div>' + i + '</div>';
+        }
+        document.getElementById('lineObj').innerHTML = string;
+      };
+
+      if ($route.current.params.id) {
+        scope.doc = Doc.get({id: $route.current.params.id}, function(data) {
+          if (data.content.split("\n").length > 20) {
+            scope.rowNumber = data.content.split("\n").length;
+          } else {
+            scope.rowNumber = 20;
+          }
+          scope.changeText();
+        });
+      }
+    }
+  };
+}]);
