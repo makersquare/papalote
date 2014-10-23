@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require dropzone
 //= require angular
 //= require angular-resource
 //= require angular-animate

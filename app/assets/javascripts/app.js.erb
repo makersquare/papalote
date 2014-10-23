@@ -23,7 +23,8 @@ app.config(['$routeProvider', function($routeProvider){
     controller: "DocController"
   })
   .when('/test', {
-    templateUrl: "<%= asset_path('templates/test-upload.html.erb') %>"
+    templateUrl: "<%= asset_path('templates/test-upload.html.erb') %>",
+    controller: "UploadController"
   })
   .otherwise({
     redirectTo: '/'
