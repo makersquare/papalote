@@ -6,6 +6,7 @@ app.factory('Folder', ['$resource', '$location',
       {update: {method: "PATCH"}}
     );
   return {
+    folderResource: Fldr,
     createFolder: function(name) {
       var newFolder = new Fldr({name: name})
       newFolder.$save(function(data) {
