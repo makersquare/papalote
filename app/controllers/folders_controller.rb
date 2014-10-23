@@ -23,6 +23,7 @@ class FoldersController < ApplicationController
   end
 
   def update
+    @folder = Folder.find(params[:id])
     respond_to do |format|
       if @folder.update(folder_params)
         format.json { render :show}

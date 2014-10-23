@@ -10,7 +10,6 @@ app.factory('Folder', ['$resource', '$location',
     createFolder: function(name) {
       var newFolder = new Fldr({name: name})
       newFolder.$save(function(data) {
-        console.log(data);
         $location.path("/folder/" + data.id);
       });
     }
