@@ -1,17 +1,17 @@
 app.factory('Folder', ['$resource', '$location',
   function($resource, $location) {
-    var Fldr = $resource(
+    var folderResource = $resource(
       '/folders/:id',
       {id: '@id'},
       {update: {method: "PATCH"}}
     );
   return {
-    folderResource: Fldr,
+    folderResource: folderResource,
     createFolder: function(name) {
-      var newFolder = new Fldr({name: name})
+      var newFolder = new folderResource({name: name});
       newFolder.$save(function(data) {
-        $location.path("/folder/" + data.id);
+        $location.path("/folders/" + data.id);
       });
     }
-  }
+  };
 }]);

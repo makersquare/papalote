@@ -25,11 +25,11 @@ app.config(["$routeProvider", function($routeProvider){
   .when('/test', {
     templateUrl: "<%= asset_path('templates/test-upload.html.erb') %>"
   })
-  .when("/folder/new", {
+  .when("/folders/new", {
     templateUrl: "<%= asset_path('templates/new-folder-view.html') %>",
     controller: "NewFolderController"
   })
-  .when("/folder/:id", {
+  .when("/folders/:id", {
     templateUrl: "<%= asset_path('templates/show-folder-view.html') %>",
     controller: "ViewFolderController"
   })
