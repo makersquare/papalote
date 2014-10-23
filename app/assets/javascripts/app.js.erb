@@ -14,7 +14,11 @@ app.config(['$routeProvider', function($routeProvider){
     templateUrl: "<%= asset_path('templates/test.html') %>",
     controller: "TestCtrl"
   })
-  .when('/docs', {
+  .when('/docs/new', {
+    templateUrl: "<%= asset_path('templates/doc-view.html') %>",
+    controller: "DocNewController"
+  })
+  .when('/docs/:id', {
     templateUrl: "<%= asset_path('templates/doc-view.html') %>",
     controller: "DocController"
   })
