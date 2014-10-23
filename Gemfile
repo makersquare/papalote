@@ -7,7 +7,7 @@ gem 'rails_12factor', group: :production
 gem 'rack-timeout'
 
 # Enviroment Config
-# gem 'figaro'
+gem 'figaro'
 
 # Database
 gem 'pg'
@@ -33,6 +33,9 @@ gem 'socket.io-rails'
 
 gem 'jbuilder', '~> 2.0'
 
+# User Authentication OmniAuth
+gem 'omniauth-github'
+
 group :doc do
   gem 'sdoc', require: false
 end
@@ -48,4 +51,5 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'hirb'
   gem 'thin'
+  gem 'dotenv-rails'
 end
