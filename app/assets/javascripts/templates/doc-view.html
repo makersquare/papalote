@@ -12,7 +12,7 @@
     <label for="content">Content:</label>
     <div class="textAreaWithLines">
       <div id="lineObj">1<br>2<br>3<br>4<br>5<br></div>
-    <textarea id="content" rows="20" ng-model="doc.content" class="ng-pristine ng-untouched ng-valid"></textarea>
+    <textarea id="content" rows="20" ng-model="doc.content" class="ng-pristine ng-untouched ng-valid" ng-keydown="checkNewLines($event)"></textarea>
   </div>
 </div>
 </div>

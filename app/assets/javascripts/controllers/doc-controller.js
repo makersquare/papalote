@@ -15,4 +15,11 @@ app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocServic
   $scope.newDoc = function () {
     DocService.newDoc();
   };
+  $scope.checkNewLines = function(event) {
+    if (event.which === 13) {
+      DocService.newLineCount($scope.doc.content,'enter');
+    } else {
+      DocService.newLineCount($scope.doc.content);
+    }
+  };
 }]);
