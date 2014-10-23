@@ -15,8 +15,6 @@ class DocsController < ApplicationController
     
     @doc = Doc.new(new_doc)
 
-    binding.pry
-
     respond_to do |format|
       if @doc.save
         format.html { redirect_to @doc, notice: 'Doc was successfully created.' }

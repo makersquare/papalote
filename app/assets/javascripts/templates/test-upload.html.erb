@@ -1,10 +1,6 @@
-<div flow-init="{target: '/docs', testChunks: false}"
-     flow-files-submitted="$flow.upload()"
-     flow-file-success="$file.msg = $message">
+<div flow-files-submitted="$flow.upload()">
 
   <input type="file" flow-btn/>
-  Input OR Other element as upload button
-  <span class="btn" flow-btn>Upload File</span>
 
   <table>
     <tr ng-repeat="file in $flow.files">
