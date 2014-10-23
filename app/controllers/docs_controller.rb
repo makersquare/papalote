@@ -8,14 +8,17 @@ class DocsController < ApplicationController
   end
 
   def create
-    if params['file'] 
+
+    if params['file']
       new_doc =  {
         name: params['file'].original_filename,
         content: params['file'].read
       }
+      @doc = Doc.new(new_doc)
+    else
+      @doc = Doc.new(doc_params)
     end
     
-    @doc = Doc.new(new_doc)
 
     respond_to do |format|
       if @doc.save
