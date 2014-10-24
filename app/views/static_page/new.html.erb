@@ -3,7 +3,7 @@
     <div class="signup-panel">
       <p class="welcome"> Welcome to this awesome app!</p>
       <form>
-         <a href="/auth/github" class="button ">Sign In via Github</a>
+         <a href="https://github.com/login/oauth/authorize?scope=user:GITHUB_KEY=1c651d10181570330a" class="button ">Sign In via Github</a>
          <p>Already have an account? <a href="#">Login here &raquo</a></p>
       </form>
     </div>
@@ -11,9 +11,9 @@
 </div>         
 
 
-   when click login , redirect to /auth/github
+   <!-- when click login , redirect to /auth/github
    takes user to guthubs auth system
    once they logged in it will redirect user to our web app at the redirect url that we provided them with
    /auth/github/callback
    create this route and retrieve current user infor based on info they give us
-   info they give us lcoated at: request.env['omniauth.auth']
+   info they give us lcoated at: request.env['omniauth.auth'] -->
