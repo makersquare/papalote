@@ -7,7 +7,7 @@ gem 'rails_12factor', group: :production
 gem 'rack-timeout'
 
 # Enviroment Config
-# gem 'figaro'
+gem 'figaro'
 
 # Database
 gem 'pg'
