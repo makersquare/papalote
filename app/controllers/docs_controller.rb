@@ -3,11 +3,6 @@ class DocsController < ApplicationController
 
   before_action :set_doc, only: [:show, :update, :destroy, :download]
 
-  def index
-    @docs = Doc.where(folder_id: params[:folder_id])
-    render json: @docs
-  end
-
   def show
     render json: @doc
   end

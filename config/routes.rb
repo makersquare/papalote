@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   root 'static_page#index'
 
-  get "folders/:folder_id/docs", to: "docs#index"
+  get "folders/:folder_id/contents", to: "folders#contents"
   resources :folders, only: [:index, :show, :create, :update, :destroy], defaults: {format: :json}
   resources :docs, defaults: {format: :json}
   get "docs/:id/download", to: "docs#download"
