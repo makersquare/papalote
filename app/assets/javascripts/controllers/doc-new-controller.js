@@ -1,27 +1,12 @@
 app.controller('DocNewController', ['$scope','Doc', '$timeout', '$route', 'DocService',
   function($scope, Doc, $timeout, $route, DocService) {
-  $scope.load = Doc.get({id: 1}, function() {
-     DocService.newLineCount('');
-     $scope.lineNumber = 20;
-  });
+  $scope.rowNumber = 20;
   $scope.saveComplete = false;
   $scope.titleEditDisable = false;
 
   $scope.doc = new Doc();
+  
   $scope.saveDoc = function(doc) {
     DocService.newDocSave(doc);
-  };
-  $scope.newDoc = function () {
-    $scope.doc = new Doc();
-  };
-  $scope.checkNewLines = function() {
-    DocService.newLineCount($scope.doc.content);
-  };
-  $scope.newLines = function(event) {
-    if (event.which === 9) {
-      DocService.tabKey();
-      event.preventDefault();
-    }
-    DocService.scrollLineNumber();
   };
 }]);

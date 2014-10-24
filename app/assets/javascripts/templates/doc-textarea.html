@@ -1,4 +1,4 @@
 <div class="textAreaWithLines">
   <div id="lineObj"></div>
-  <textarea id="content" rows='{{lineNumber}}' ng-model="doc.content" ng-trim="false"></textarea>
+  <textarea id="content" rows='{{rowNumber}}' ng-model="doc.content" ng-change="changeText()" ng-trim="false"></textarea>
 </div>

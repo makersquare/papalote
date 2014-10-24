@@ -11,17 +11,6 @@ app.factory('DocService', ['$location', 'Doc', function($location, Doc) {
 		},
 		newDoc: function() {
 		  $location.path('/docs/new');
-		},
-		newLineCount: function(str) {
-		  this.lineNumber = str.split('\n').length;
-		  this.addLineNumber();
-		},
-		addLineNumber: function() {
-		  var string = '';
-		  for (var i = 1;i <= this.lineNumber;i++) {
-				string += '<div>' + i + '</div>';
-		  }
-		  document.getElementById('lineObj').innerHTML = string;
 		}
   }
 }]);

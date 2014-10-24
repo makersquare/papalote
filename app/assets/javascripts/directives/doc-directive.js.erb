@@ -1,7 +1,8 @@
-app.directive('docDirective', function() {
+app.directive('docDirective', ['Doc', '$route', function(Doc, $route) {
   return {
     templateUrl: "<%= asset_path('assets/templates/doc-textarea.html') %>",
-    link: function($scope, element, attrs) {
+    scope: false,
+    link: function(scope, element, attrs) {
       element.bind("keydown", function(event) {
         var textarea = document.getElementById('content');
         if (event.which === 9) {
@@ -20,14 +21,21 @@ app.directive('docDirective', function() {
           obj.style.top = (textarea.scrollTop * -1 + 2) + 'px';
         }
       });
-      $scope.doc.content.bind('change', function() {
-        $scope.lineNumber = $scope.doc.content.split('\n').length;
+
+      scope.changeText = function() {
+        scope.lineNumber = scope.doc.content.split('\n').length;
         var string = '';
-        for (var i = 1;i <= $scope.lineNumber;i++) {
+        for (var i = 1;i <= scope.lineNumber;i++) {
           string += '<div>' + i + '</div>';
         }
         document.getElementById('lineObj').innerHTML = string;
-      });
+      };
+      
+      if ($route.current.params.id) {
+        scope.doc = Doc.get({id: $route.current.params.id}, function(data) {
+          scope.changeText();
+        });
+      }
     }
   };
-});
+}]);
