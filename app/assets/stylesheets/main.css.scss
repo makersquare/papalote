@@ -15,6 +15,10 @@ $footer: #2c3e50;
 $footer-text: #fff;
 
 
+#main-view {
+  margin: 20px 0;
+}
+
 @import "base/fonts.scss";
 @import "styles/header.scss";
 @import "styles/footer.scss";
