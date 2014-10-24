@@ -1,7 +1,7 @@
 app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocService',
   function($scope, Doc, $timeout, $route, DocService) {
   $scope.doc = Doc.get({id: $route.current.params.id}, function(data) {
-    DocService.newLineCount(data.content);
+    // DocService.newLineCount(data.content);
     if (DocService.lineNumber > 20) {
       $scope.lineNumber = DocService.lineNumber;
     } else {
@@ -25,9 +25,6 @@ app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocServic
   };
   $scope.newLines = function(event) {
     if (event.which === 9) {
-      DocService.tabKey();
-      event.preventDefault();
     }
-    DocService.scrollLineNumber();
   };
 }]);

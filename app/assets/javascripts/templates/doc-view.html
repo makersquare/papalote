@@ -10,9 +10,6 @@
 <div class='row'>
   <div class="large-8 large-centered columns">
     <label for="content">Content:</label>
-    <div class="textAreaWithLines">
-      <div id="lineObj"></div>
-    <textarea id="content" rows='{{lineNumber}}' ng-model="doc.content" class="ng-pristine ng-untouched ng-valid" ng-keydown="newLines($event)" ng-change='checkNewLines()' ng-trim="false"></textarea>
-    </div>
+    <div doc-directive></div>
   </div>
 </div>
