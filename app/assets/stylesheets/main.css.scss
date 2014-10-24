@@ -1,9 +1,20 @@
-// legend
-$header: #000;
-$footer: #000;
-$nav: #ff0000;
-$subnav: #ccc;
+// general colors
 $links: #f3f3f3;
 $links-hover: #213911;
 
+// header colors
+$header: #2c3e50;
+$header-text: #fff;
+
+// nav colors
+$nav: #ff0000;
+$subnav: #ccc;
+
+// footer colors
+$footer: #2c3e50;
+$footer-text: #fff;
+
+
 @import "base/fonts.scss";
+@import "styles/header.scss";
+@import "styles/footer.scss";

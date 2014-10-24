@@ -1,0 +1,19 @@
+header#header {
+  background: $header;
+  color: $header-text;
+  .logo {
+
+  }
+}
+
+#main-nav {
+  text-align: right;
+  float: right;
+  .avatar {
+    float: right;
+    margin-right: 10px;
+  }
+  .user-info {
+    float: right;
+  }
+}
