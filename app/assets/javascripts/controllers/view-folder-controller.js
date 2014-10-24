@@ -9,7 +9,6 @@ app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', '
       $location.path("/docs/" + doc.id);
     };
     $scope.newDoc = function(folder){
-      var createdDoc = {folder_id: folder.id, name: $scope.name};
-      Folder.createDocForFolder(createdDoc);
+      Folder.createDocForFolder({folder_id: folder.id, name: $scope.name});
     };
   }]);
