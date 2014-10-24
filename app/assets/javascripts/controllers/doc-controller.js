@@ -24,10 +24,9 @@ app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocServic
     DocService.newLineCount($scope.doc.content);
   };
   $scope.newLines = function(event) {
-    if (event.which === 13) {
-      DocService.checkKey($scope.doc.content,'enter');
-    } else if (event.which === 8) {
-      DocService.checkKey($scope.doc.content,'backspace');
+    if (event.which === 9) {
+      DocService.tabKey();
+      event.preventDefault();
     }
     DocService.scrollLineNumber();
   };
