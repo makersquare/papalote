@@ -1,17 +1,28 @@
-app.factory('Folder', ['$resource', '$location',
-  function($resource, $location) {
+app.factory('Folder', ['$resource', '$location', 'DocService',
+  function($resource, $location, DocService) {
     var folderResource = $resource(
       '/folders/:id',
       {id: '@id'},
       {update: {method: "PATCH"}}
     );
+
+    var folderDocResource = $resource(
+      '/folders/:folder_id/docs',
+      {folder_id: '@folder_id'},
+      {update: {method: "PATCH"}}
+    );
+
   return {
+    folderDocResource: folderDocResource,
     folderResource: folderResource,
     createFolder: function(name) {
       var newFolder = new folderResource({name: name});
       newFolder.$save(function(data) {
         $location.path("/folders/" + data.id);
       });
+    },
+    createDocForFolder: function(doc) {
+      DocService.newDocSave(doc);
     }
   };
 }]);
