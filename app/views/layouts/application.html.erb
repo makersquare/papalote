@@ -12,37 +12,29 @@
   </head>
 
   <body ng-app="mksDriveApp">
-    <nav class="top-bar" data-topbar role="navigation">
-      <ul class="title-area">
-        <li class="name">
-          <h1><a href="#">Whoa! Sick Topbar Dude!</a></h1>
-        </li>
-         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Button</span></a></li>
-      </ul>
 
-      <section class="top-bar-section">
-        <!-- Right Nav Section -->
-        <ul class="right">
-          <li class="active"><a href="#/folders/new">Create New Folder</a></li>
-          <li class="active"><a href="#/docs/new">Create New File</a></li>
-          <li class="has-dropdown">
-            <a href="#">Right Button Dropdown</a>
-            <ul class="dropdown">
-              <li><a href="#">First link in dropdown</a></li>
-              <li class="active"><a href="#">Active link in dropdown</a></li>
-            </ul>
-          </li>
-        </ul>
-
-        <!-- Left Nav Section -->
-        <ul class="left">
-          <li><a href="#">Left Nav Button</a></li>
-        </ul>
-      </section>
-    </nav>
+  <header id="header">
+    <div class="row">
+      <div class="logo small-6 columns">
+        logo
+      </div>
+      <nav id="main-nav" class="small-3 small-offset-3 columns">
+        <div class="user-info">
+          name
+        </div>
+        <div class="avatar">
+          avatar
+        </div>
+      </nav>
+    </div>
+  </header>
 
     <%= yield %>
     <%= javascript_include_tag "application" %>
+
+  <footer>
+    
+  </footer>
+
   </body>
 </html>
