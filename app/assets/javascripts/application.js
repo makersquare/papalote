@@ -22,7 +22,6 @@
 //= require app
 //= require flow
 //= require ng-flow
-//= require_tree ./chat
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

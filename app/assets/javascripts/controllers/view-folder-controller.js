@@ -1,4 +1,4 @@
-app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', 'Folder', 'FolderDocs', 'Doc', 'DocService',
+app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', 'Folder', 'Doc', 'FolderDocs', 'DocService',
   function($scope, $routeParams, $location, Folder, FolderDocs, Doc, DocService) {
     $scope.folder = Folder.folderResource.get({id: $routeParams["id"]});
     $scope.updateFolderName = function(folder) {
