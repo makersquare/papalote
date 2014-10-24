@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 app.factory('Folder', ['$resource', '$location', 'DocService',
   function($resource, $location, DocService) {
-=======
-app.factory('Folder', ['$resource', '$location', 'DocService', 'FolderDocs',
-  function($resource, $location, DocService, FolderDocs) {
->>>>>>> refactor to remove logic and dependenices from controller, place in model.
     var folderResource = $resource(
       '/folders/:id',
       {id: '@id'},
