@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
-
+#asdfasdfasf
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 gem 'rails_12factor', group: :production
