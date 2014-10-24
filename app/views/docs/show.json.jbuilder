@@ -1,0 +1,1 @@
+json.extract! @doc, :id, :name, :content, :folder_id, :created_at, :updated_at

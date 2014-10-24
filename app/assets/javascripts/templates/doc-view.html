@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="large-8 large-centered columns">
+    <button type="button" ng-click="newDoc()">New</button>
+    <button type="button" ng-click="saveDoc(doc)">Save</button>
+    <p ng-show="saveComplete">Save Completed</p>
+    <label for="title">Document Name:</label>
+    <input ng-disabled="titleEditDisable" type="text" ng-model="doc.name" id="title" value='{{doc.name}}'>
+    <label for="content">Content:</label>
+    <textarea id="content" rows="20" ng-model="doc.content" value='{{doc.content}}'></textarea>
+  </div>
+</div>

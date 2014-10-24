@@ -1,0 +1,8 @@
+<div class="show-folder">
+  <input type="textarea" ng-model="folder.name"><br>
+  <button ng-click="updateFolderName(folder)">Update Name</button>
+  <h3>Files in this folder (click to go to the file):</h3>
+  <div ng-repeat="doc in folderDocs">
+    <p ng-click="findDoc(doc)">{{ doc.name }}</p>
+  </div>
+</div>
