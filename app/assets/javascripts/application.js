@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require socket.io
 //= require angular
 //= require angular-resource
 //= require angular-animate
@@ -21,6 +22,7 @@
 //= require app
 //= require flow
 //= require ng-flow
+//= require_tree ./chat
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

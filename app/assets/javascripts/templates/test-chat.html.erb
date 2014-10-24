@@ -1,0 +1,14 @@
+<div ng-controller="ChatController" id="chat">
+
+  <ul class="message-list">
+    <li ng-repeat="m in messages">
+      {{m.username}}: {{m.message}}
+    </li>
+  </ul>
+
+  <form ng-submit="sendMessage(message)" class="send-message">
+    <input ng-model="message.message" autocomplete="off" /><button class="tiny">Send</button>
+  </form>
+
+</div>
+

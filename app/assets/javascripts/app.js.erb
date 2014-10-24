@@ -32,6 +32,8 @@ app.config(["$routeProvider", function($routeProvider){
   .when("/folders/:id", {
     templateUrl: "<%= asset_path('templates/show-folder-view.html') %>",
     controller: "ViewFolderController"
+  .when('/test-chat', {
+    templateUrl: "<%= asset_path('templates/test-chat.html.erb') %>"
   })
   .otherwise({
     redirectTo: "/"
