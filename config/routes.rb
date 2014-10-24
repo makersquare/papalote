@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   resources :sessions
   resources :users
 
+  get '/login', to: 'sessions#new'
+  
   # this URL needs to match the github callback url we set when creating our Github client ID and token
   get '/auth/:provider/callback', to: 'sessions#create'
   post '/auth/:provider/callback', to: 'sessions#create'
 
-  get '/login', to: 'sessions#new'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

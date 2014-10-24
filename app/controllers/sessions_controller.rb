@@ -18,11 +18,12 @@ class SessionsController < ApplicationController
     # end
 
     # redirect_to root_path, notice: 'You have successfully signed in!'
-    @info = {
-      omniauth_info: request.env['omniauth.auth']
-    }
-
-    @request = request
+    @info = request.env['omniauth.auth']
+    # binding.pry
+    
+    # @info = {
+    #   omniauth_info: request.env['omniauth.auth']
+    # }
   end
 
   def destroy
