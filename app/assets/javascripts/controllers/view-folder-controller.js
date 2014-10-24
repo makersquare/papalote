@@ -1,15 +1,16 @@
-app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', 'Folder', 'Doc', 'FolderDocs', 'DocService',
-  function($scope, $routeParams, $location, Folder, FolderDocs, Doc, DocService) {
+app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', 'Folder',
+  function($scope, $routeParams, $location, Folder) {
+    
     $scope.folder = Folder.folderResource.get({id: $routeParams["id"]});
+    $scope.folderDocs = Folder.folderDocResource.query({folder_id: $routeParams["id"]});
     $scope.updateFolderName = function(folder) {
       Folder.folderResource.update(folder);
     };
-    $scope.folderDocs = FolderDocs.query({folder_id: $routeParams["id"]});
     $scope.findDoc = function(doc) {
       $location.path("/docs/" + doc.id);
     };
     $scope.newDoc = function(folder){
-      var createdDoc = new Doc({folder_id: folder.id, name: $scope.name});
-      DocService.newDocSave(createdDoc);
+      var createdDoc = {folder_id: folder.id, name: $scope.name};
+      Folder.createDocForFolder(createdDoc);
     };
   }]);
