@@ -1,5 +1,5 @@
-app.factory('Folder', ['$resource', '$location', 'DocService', 'FolderDocs',
-  function($resource, $location, DocService, FolderDocs) {
+app.factory('Folder', ['$resource', '$location', 'DocService', 
+  function($resource, $location, DocService) {
     var folderResource = $resource(
       '/folders/:id',
       {id: '@id'},
