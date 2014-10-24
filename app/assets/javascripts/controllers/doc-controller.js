@@ -29,13 +29,6 @@ app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocServic
     } else if (event.which === 8) {
       DocService.checkKey($scope.doc.content,'backspace');
     }
-    var ta = document.getElementById('content');
-    var lineObj = document.getElementById('lineObj');
-    ta.onkeydown = function() { positionLineObj(lineObj,ta); };
-    ta.onmousedown = function() { positionLineObj(lineObj,ta); };
-    ta.onscroll = function() { positionLineObj(lineObj,ta); };
-    var positionLineObj = function(obj,ta) {
-      obj.style.top = (ta.scrollTop * -1 + 2) + 'px';
-    }
+    DocService.scrollLineNumber();
   };
 }]);

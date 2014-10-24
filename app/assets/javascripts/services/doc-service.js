@@ -27,6 +27,16 @@ app.factory('DocService', ['$location', 'Doc', function($location, Doc) {
 		  if (event === 'enter' || event === 'backspace') {
 				this.lineNumber = str.split("\n");
 		  }
+		},
+		scrollLineNumber: function() {
+			var textarea = document.getElementById('content');
+	    var lineObj = document.getElementById('lineObj');
+	    textarea.onkeydown = function() { positionLineObj(lineObj,textarea); };
+	    textarea.onmousedown = function() { positionLineObj(lineObj,textarea); };
+	    textarea.onscroll = function() { positionLineObj(lineObj,textarea); };
+	    var positionLineObj = function(obj,textarea) {
+	      obj.style.top = (textarea.scrollTop * -1 + 2) + 'px';
+	    }
 		}
   }
 }]);
