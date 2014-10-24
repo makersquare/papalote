@@ -1,4 +1,16 @@
 class User < ActiveRecord::Base
-  validates_presence_of :github_uid, :name, :github_token
-  validates_uniqueness_of :github_uid, :display_name
+  # validates_uniqueness_of :github_uid
+  
+  def self.create_user(auth)
+    create! do |user|
+      # binding.pry
+      user.github_uid = auth['uid']
+      if auth['info']
+        user.name = auth['info']['name'] || ""
+        user.display_name = auth['info']['nickname'] || ""
+      end
+    end
+  end
+
+
 end

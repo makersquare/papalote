@@ -1,6 +1,8 @@
 <h1>Whoa! This is super cool application!</h1>
 <a href="/login" class='button'>Login via Github</a>
-
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
 <div ng-view>
 
 </div>

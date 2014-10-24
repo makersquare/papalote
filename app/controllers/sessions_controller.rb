@@ -5,29 +5,20 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # result = SignInUser.new(
-    #   oauth_data: request.env['omniauth.auth']).exec
-
-    # if result.ok?
-    #   session[:user_id] = result.user.user_id
-    #   session[:access_token] = result.oauth_token
-    #   session[:admin] = result.is_admin
-    #   redirect_to session.delete(:return_to) || root_path
-    # else
-    #   redirect_to "/signin"
-    # end
-
-    # redirect_to root_path, notice: 'You have successfully signed in!'
-    @info = request.env['omniauth.auth']
+    # This assigns the hash from Github into an auth variable. 
+    auth = request.env["omniauth.auth"]
+    # It then checks if a user exists and if not, it calls the create_user(auth) method .
+    user = User.where(github_uid: auth['uid']).first || User. create_user(auth)
+    # It sets the session[:user_id] to the users id and redirects back to the homepage with a notice of "Signed in!".
+    session[:user_id] = user.id
     # binding.pry
-    
-    # @info = {
-    #   omniauth_info: request.env['omniauth.auth']
-    # }
+    flash[:notice] = "Signed in!"
+    redirect_to root_path 
   end
-
+  
+  
   def destroy
-    session[:github_uid] = nil
+    session[:user_id] = nil
     redirect_to root_path, notice: "You are logged out!"
   end
 end
