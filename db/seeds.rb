@@ -15,6 +15,8 @@ def create_folders
 	f = Folder.create(name: "Dan's Folder")
 	f1 = Folder.create(name: "Kim's Folder")
 	f2 = Folder.create(name: "Parag's Folder")
+	folders = Folder.all
+	f3 = Folder.create(name: "Parag's Subfolder", parentfolder: folders[2])
 end
 
 def create_docs
@@ -25,6 +27,7 @@ def create_docs
 	Doc.create(name: "Parag I", content: ":..(", folder: folders[1])
 	Doc.create(name: "Parag II", content: ";)", folder: folders[1])
 	Doc.create(name: "Parag III", content: ":)", folder: folders[1])
+	Doc.create(name: "Parag's new file in a subfolder", content: "my resume", folder: folders[4])
 	Doc.create(name: "Kim's Good File", content: "topsecret", folder: folders[2])
 	Doc.create(name: "Kim's Great File", content: "don't read", folder: folders[2])
 	Doc.create(name: "Kim's BEST FILE!!!", content: "goodstuff", folder: folders[2])
