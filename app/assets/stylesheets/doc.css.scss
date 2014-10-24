@@ -1,9 +1,7 @@
 #content {
-   height: 300px;
    padding-top: 2px;
    position: absolute;
    left: 30px;
-
 }
 
 .textAreaWithLines {
@@ -11,7 +9,7 @@
    border:1px solid black;
    width: 693px;
    height: 302px;
-   overflow: hidden;
+   overflow: auto;
    position: relative;
 }
 
@@ -28,5 +26,6 @@
    top: 2px;
    left: 0px;
    width: 27px;
+   height: 300px;
    text-align: right;
 }
