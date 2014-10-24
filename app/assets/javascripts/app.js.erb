@@ -25,6 +25,9 @@ app.config(['$routeProvider', function($routeProvider){
   .when('/test', {
     templateUrl: "<%= asset_path('templates/test-upload.html.erb') %>"
   })
+  .when('/test-chat', {
+    templateUrl: "<%= asset_path('templates/test-chat.html.erb') %>"
+  })
   .otherwise({
     redirectTo: '/'
   })

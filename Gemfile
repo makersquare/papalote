@@ -26,6 +26,8 @@ gem 'foundation-icons-sass-rails'
 gem 'rails-assets-flow.js'
 gem 'rails-assets-ng-flow'
 
+gem 'socket.io-rails'
+
 # might be necessary to resolve issues with angular and rails
 # gem 'ng-rails-csrf'
 
