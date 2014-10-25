@@ -5,8 +5,11 @@ app.controller('DocNewController', ['$scope','Doc', '$timeout', '$route', 'DocSe
   $scope.titleEditDisable = false;
 
   $scope.doc = new Doc();
-  
+
   $scope.saveDoc = function(doc) {
     DocService.newDocSave(doc);
+  };
+  $scope.newDoc = function () {
+    DocService.newDoc();
   };
 }]);
