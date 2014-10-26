@@ -27,17 +27,23 @@ app.directive('docDirective', ['Doc', '$route', function(Doc, $route) {
       });
 
       scope.changeText = function() {
-        scope.lineNumber = scope.doc.content.split('\n').length;
-        var string = '';
-        for (var i = 1;i <= scope.lineNumber;i++) {
-          string += '<div>' + i + '</div>';
+        if (scope.doc.content === null) {
+          document.getElementById('lineObj').innerHTML = '<div>1</div>';
+        } else {
+          scope.lineNumber = scope.doc.content.split('\n').length;
+          var string = '';
+          for (var i = 1;i <= scope.lineNumber;i++) {
+            string += '<div>' + i + '</div>';
+          }
+          document.getElementById('lineObj').innerHTML = string;
         }
-        document.getElementById('lineObj').innerHTML = string;
       };
 
       if ($route.current.params.id) {
         scope.doc = Doc.get({id: $route.current.params.id}, function(data) {
-          if (data.content.split("\n").length > 20) {
+          if (data.content === null) {
+            scope.rowNumber = 20;
+          } else if (data.content.split("\n").length > 20) {
             scope.rowNumber = data.content.split("\n").length;
           } else {
             scope.rowNumber = 20;
