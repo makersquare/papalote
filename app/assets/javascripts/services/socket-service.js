@@ -12,7 +12,9 @@
 
 
 app.factory('Socket', ['$rootScope', function($rootScope){
-  var socket = io.connect('10.10.10.10:8080');
+  var socket = io.connect('10.10.10.10:8080', {
+    reconnection: false
+  });
   return {
     on: function(eventName, callback){
       socket.on(eventName, function(){
