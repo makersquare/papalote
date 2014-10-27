@@ -55,6 +55,13 @@ class DocsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def download
+    @doc = Doc.find(params[:id])
+    File.open('downloads/' + @doc.name, 'w') { |f| f.write(@doc.content) }
+    send_file 'downloads/' + @doc.name
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_doc
