@@ -34,15 +34,46 @@
       </aside>
 
       <a class="left-off-canvas-toggle">
-        nav goes here
+        <div class="toggle-icon">
+
+          <i class="fa fa-bars fa-2x"></i>
+
+        </div>
+        <div class="menu">
+
+          <nav class="top-bar" data-topbar role="navigation">
+            <ul class="title-area">
+              <li class="name">
+                <h1><a href="#">Papalote</a></h1>
+              </li>
+            </ul>
+
+            <section class="top-bar-section">
+              <!-- Right Nav Section -->
+              <ul class="right">
+                <li class="active"><a href="#/folders/new">Create New Folder</a></li>
+                <li class="active"><a href="#/docs/new">Create New File</a></li>
+                <li class="has-dropdown">
+                  <a href="#">Parag DaDon</a>
+                  <ul class="dropdown">
+                    <li><a href="#">User Settings</a></li>
+                    <li><a href="#">Sign Out</a></li>
+                  </ul>
+                </li>
+              </ul>
+
+            </section>
+          </nav>
+
+        </div>
       </a>
 
       <!-- close the off-canvas menu -->
       <a class="exit-off-canvas"></a>
 
 
-      <section class="main-section">
-      <%= yield %>
+      <section id="main-section">
+        <%= yield %>
       </section>
 
     </div>
