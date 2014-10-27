@@ -44,10 +44,11 @@ group :development do
   gem 'spring'
 end
 
+gem 'better_errors'
+gem 'binding_of_caller'
+
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.2'
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'pry-byebug'
   gem 'hirb'
   gem 'thin'
