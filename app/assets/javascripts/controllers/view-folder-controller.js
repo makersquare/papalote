@@ -7,9 +7,7 @@ app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', '
     $scope.folderDocs = Folder.folderDocResource.get({folder_id: $routeParams["id"]}, function(data){
       $scope.subfolders = data.folders;
       $scope.docs = data.docs;
-      console.log($scope.parentfolder);
       if ($scope.parentFolder === undefined) {
-        console.log("hello");
         $scope.backToParentView = false;
       }
       else {
