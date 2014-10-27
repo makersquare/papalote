@@ -27,30 +27,7 @@ $footer-text: #666;
 }
 
 @import "base/fonts.scss";
-@import "base/mixins.scss";
 @import "base/body.scss";
-
-// general colors
-$links: #f3f3f3;
-$links-hover: #213911;
-
-// header colors
-$header: #2c3e50;
-$header-text: #fff;
-
-// nav colors
-$nav: #ff0000;
-$subnav: #ccc;
-
-// footer colors
-$footer: #2c3e50;
-$footer-text: #fff;
-
-
-#main-view {
-  margin: 20px 0;
-}
-
-@import "base/fonts.scss";
+@import "base/mixins.scss";
 @import "styles/header.scss";
 @import "styles/footer.scss";

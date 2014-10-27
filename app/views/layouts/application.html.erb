@@ -8,8 +8,6 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
@@ -20,7 +18,7 @@
   <header id="header" class="fixed">
     <nav class="top-bar" data-topbar role="navigation">
 
-<div class="off-canvas-wrap"><!-- page layout goes here --></div>
+    <div class="off-canvas-wrap"><!-- page layout goes here --></div>
 
       <div class="off-canvas-wrap">
         <nav class="left-off-canvas-menu">
@@ -52,28 +50,12 @@
         </ul>
       </section>
     </nav>
-
-  <header id="header">
-    <div class="row">
-      <div class="logo small-6 columns">
-        logo
-      </div>
-      <nav id="main-nav" class="small-3 small-offset-3 columns">
-        <div class="user-info">
-          name
-        </div>
-        <div class="avatar">
-          avatar
-        </div>
-      </nav>
-    </div>
   </header>
 
   <div id="main-view">
     <%= yield %>
   </div>
   
-  <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "application" %>
 
   <footer>
