@@ -1,7 +1,7 @@
 class DocsController < ApplicationController
   require 'tempfile'
 
-  before_action :set_doc, only: [:show, :update, :destroy]
+  before_action :set_doc, only: [:show, :update, :destroy, :download]
 
   def index
     @docs = Doc.where(folder_id: params[:folder_id])
@@ -57,9 +57,8 @@ class DocsController < ApplicationController
   end
 
   def download
-    @doc = Doc.find(params[:id])
-    File.open('downloads/' + @doc.name, 'w') { |f| f.write(@doc.content) }
-    send_file 'downloads/' + @doc.name
+    File.open('public/downloads/' + @doc.name, 'w') { |f| f.write(@doc.content) }
+    render json: @doc
   end
 
   private

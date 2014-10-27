@@ -20,6 +20,8 @@ app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocServic
   };
 
   $scope.download = function(){
-    Download.get({id: $scope.id});
-  };
+    Download.get({id: $scope.id}, function(data){
+      $scope.file_name = './downloads/' + data.name;
+    });
+  }();
 }]);

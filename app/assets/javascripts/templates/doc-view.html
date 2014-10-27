@@ -2,7 +2,9 @@
   <div class="large-8 large-centered columns">
     <button type="button" ng-click="newDoc()">New</button>
     <button type="button" ng-click="saveDoc(doc)">Save</button>
-    <button type="button" ng-click="download()" ng-show="downloadDoc">Download</button>
+    <a ng-href="{{file_name}}" ng-show="downloadDoc" download>
+      <button type="button">Download</button> 
+    </a>
     <p ng-show="saveComplete">Save Completed</p>
     <label for="title">Document Name:</label>
     <input ng-disabled="titleEditDisable" type="text" ng-model="doc.name" id="title" value='{{doc.name}}'>
