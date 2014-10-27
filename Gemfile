@@ -22,6 +22,7 @@ gem 'jquery-rails'
 gem 'foundation-rails'
 gem 'angularjs-rails'
 gem 'foundation-icons-sass-rails'
+gem "font-awesome-rails"
 
 gem 'rails-assets-flow.js'
 gem 'rails-assets-ng-flow'
