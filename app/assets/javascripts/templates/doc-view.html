@@ -7,5 +7,6 @@
     <input ng-disabled="titleEditDisable" type="text" ng-model="doc.name" id="title" value='{{doc.name}}'>
     <label for="content">Content:</label>
     <textarea id="content" rows="20" ng-model="doc.content" value='{{doc.content}}'></textarea>
+    <button ng-click="findFolder(doc)">Back to folder</button>
   </div>
 </div>
