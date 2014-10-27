@@ -12,8 +12,6 @@
   </head>
 
   <body ng-app="mksDriveApp">
-
-
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
@@ -52,12 +50,16 @@
           </li>
         </ul>
 
+      <section class="main-section">
+      <%= yield %>
       </section>
-    </nav>
 
-    <%= yield %>
+    </div>
+  </div>
+
+
     <%= javascript_include_tag "application" %>
 
-    
+
   </body>
 </html>
