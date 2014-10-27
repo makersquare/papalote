@@ -2,14 +2,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-p {
-  
-}
-
 a {
   color: $links;
   &:hover {
-  color: $links-hover;
+    color: $links-hover;
   }
 }
 

@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    
+    <title><%= content_for?(:title) ? yield(:title) : "PAPALOTE" %></title>
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
@@ -13,26 +14,48 @@
 
   <body ng-app="mksDriveApp">
 
-  <header id="header">
-    <div class="row">
-      <div class="logo small-6 columns">
-        logo
+  <header id="header" class="fixed">
+    <nav class="top-bar" data-topbar role="navigation">
+
+<div class="off-canvas-wrap"><!-- page layout goes here --></div>
+
+      <div class="off-canvas-wrap">
+        <nav class="left-off-canvas-menu">
+          <a href="idOfLeftMenu" role="button" class="left-off-canvas-toggle">Left Menu</a>
+          <a href="#"></a>
+        </nav>
       </div>
-      <nav id="main-nav" class="small-3 small-offset-3 columns">
-        <div class="user-info">
-          name
-        </div>
-        <div class="avatar">
-          avatar
-        </div>
-      </nav>
-    </div>
+      
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">PAPALOTE</a></h1>
+        </li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="right">
+          <li class="has-dropdown">
+            <a href="#" class="header-username">
+              <img src="http://png-5.findicons.com/files/icons/1072/face_avatars/300/o03.png" class="avatar-icon online">
+              paragtheDON
+            </a>
+            <ul class="dropdown">
+              <li>
+                <a href="#">Settings</a>
+              </li>
+              <li><a href="#">Log Out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </nav>
   </header>
 
   <div id="main-view">
     <%= yield %>
   </div>
-    <%= javascript_include_tag "application" %>
+  
+  <%= javascript_include_tag "application" %>
 
   <footer>
 
