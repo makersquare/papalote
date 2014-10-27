@@ -5,7 +5,9 @@ class DocsController < ApplicationController
 
   def index
     @docs = Doc.where(folder_id: params[:folder_id])
-    render json: @docs
+    @subfolders = Folder.where(parentfolder_id: params[:folder_id])
+    response = {:docs => @docs, :folders => @subfolders}
+    render json: response
   end
 
   def show
