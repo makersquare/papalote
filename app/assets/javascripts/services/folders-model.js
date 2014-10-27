@@ -7,7 +7,7 @@ app.factory('Folder', ['$resource', '$location', 'DocService',
     );
 
     var folderDocResource = $resource(
-      '/folders/:folder_id/docs',
+      '/folders/:folder_id/contents',
       {folder_id: '@folder_id'},
       {update: {method: "PATCH"}}
     );

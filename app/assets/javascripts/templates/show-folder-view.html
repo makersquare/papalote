@@ -2,8 +2,11 @@
   <input type="textarea" ng-model="folder.name"><br>
   <button ng-click="updateFolderName(folder)">Update Name</button>
   <h3>Files in this folder (click to go to the file):</h3>
-	<div ng-repeat="doc in folderDocs">
+	<div ng-repeat="doc in docs">
     <p ng-click="findDoc(doc)">{{ doc.name }}</p>
+  </div>
+  <div ng-repeat="subfolder in subfolders">
+    <p ng-click="findSubFolder(subfolder)">{{ subfolder.name }}</p>
   </div>
   <div>
     <input ng-model="name" type='textarea'/><button ng-click="newDoc(folder)">Create New File</button>
