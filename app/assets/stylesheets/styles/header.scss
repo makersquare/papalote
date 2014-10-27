@@ -1,9 +1,24 @@
+.left-off-canvas-menu {
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .subheader {
+    color: #fff;
+    margin-right: 1rem;
+    padding: 15px 0 5px 0;
+  }
+}
 .toggle-icon {
   float: left;
   width: 5%;
   background: #333;
   height: 45px;
   padding: 5px 20px;
+}
+.search-bar {
+  /*height: 35px;*/
+  margin-top: 1rem;
 }
 .menu {
   float: left;
