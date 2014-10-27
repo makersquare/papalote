@@ -1,16 +1,16 @@
-/*general colors*/
+// general colors
 $links: #aaa;
 $links-hover: #ddd;
 
-/*header colors*/
+// header colors
 $header: #39424e;
 $header-text: #eee;
 
-/*nav colors*/
+// nav colors
 $nav: orange;
 $nav-hover: #444e5b;
 
-/*footer colors*/
+// footer colors
 $footer: #fff;
 $footer-text: #666;
 
@@ -29,5 +29,28 @@ $footer-text: #666;
 @import "base/fonts.scss";
 @import "base/mixins.scss";
 @import "base/body.scss";
+
+// general colors
+$links: #f3f3f3;
+$links-hover: #213911;
+
+// header colors
+$header: #2c3e50;
+$header-text: #fff;
+
+// nav colors
+$nav: #ff0000;
+$subnav: #ccc;
+
+// footer colors
+$footer: #2c3e50;
+$footer-text: #fff;
+
+
+#main-view {
+  margin: 20px 0;
+}
+
+@import "base/fonts.scss";
 @import "styles/header.scss";
 @import "styles/footer.scss";
