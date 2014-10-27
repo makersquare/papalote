@@ -36,6 +36,10 @@ app.config(["$routeProvider", function($routeProvider){
   .when('/test-chat', {
     templateUrl: "<%= asset_path('templates/test-chat.html.erb') %>"
   })
+  .when('/search', {
+    templateUrl: "<%= asset_path('templates/show-search.html') %>",
+    controller: "SearchResultsCtrl"
+  })
   .otherwise({
     redirectTo: "/"
   })

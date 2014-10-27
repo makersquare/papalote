@@ -38,7 +38,18 @@
         <!-- Left Nav Section -->
         <ul class="left">
           <li><a href="#">Left Nav Button</a></li>
+          <li class="has-form">
+            <div class="row collapse">
+              <div class="large-8 small-9 columns">
+                <input type="text" placeholder="Find Stuff" ng-model="sq.keywords">
+              </div>
+              <div class="large-4 small-3 columns">
+                <a class="alert button expand" ng-href="#/search/?keywords={{sq.keywords}}">Search</a>
+              </div>
+            </div>
+          </li>
         </ul>
+
       </section>
     </nav>
 
