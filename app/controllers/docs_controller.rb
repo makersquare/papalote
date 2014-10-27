@@ -1,7 +1,7 @@
 class DocsController < ApplicationController
   require 'tempfile'
 
-  before_action :set_doc, only: [:show, :update, :destroy]
+  before_action :set_doc, only: [:show, :update, :destroy, :download]
 
   def index
     @docs = Doc.where(folder_id: params[:folder_id])
@@ -55,6 +55,16 @@ class DocsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def download
+    path = ::Rails.application.config.download_path
+    if !Dir.exists?(path)
+      Dir.mkdir(path)
+    end
+    File.open(path + @doc.name, 'w') { |f| f.write(@doc.content) }
+    render json: @doc
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_doc

@@ -3,7 +3,7 @@ app.controller('DocNewController', ['$scope','Doc', '$timeout', '$route', 'DocSe
   $scope.rowNumber = 20;
   $scope.saveComplete = false;
   $scope.titleEditDisable = false;
-
+  $scope.downloadDoc = false;
   $scope.doc = new Doc();
 
   $scope.saveDoc = function(doc) {
