@@ -1,4 +1,13 @@
+// color legend
+$dark-grey: #333c47;
+$dark-grey-hover: #39424E;
+$light-grey: #EAEAEA;
+$light-grey-hover: #ddd;
+
+
 @import "base/fonts.scss";
 @import "base/box.scss";
+@import "styles/chat.scss";
 @import "styles/doc.scss";
 @import "styles/header.scss";
+@import "styles/home.scss";
