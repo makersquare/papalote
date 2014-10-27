@@ -1,0 +1,22 @@
+.toggle-icon {
+  float: left;
+  width: 5%;
+  background: #333;
+  height: 45px;
+  padding: 5px 20px;
+}
+.menu {
+  float: left;
+  width: 95%;
+}
+.top-bar-section {
+  .avatar {
+    height: 30px;
+    width: auto;
+    border-radius: 100%;
+  }
+  .fa {
+    margin-right: 10px;
+    font-size: 16px;
+  }
+}
