@@ -15,6 +15,9 @@ app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', '
     $scope.findDoc = function(doc) {
       $location.path("/docs/" + doc.id);
     };
+    $scope.findSubFolder = function(subfolder) {
+      $location.path('/folders/' + subfolder.id);
+    }
     $scope.newDoc = function(folder){
       Folder.createDocForFolder({folder_id: folder.id, name: $scope.name});
     };
