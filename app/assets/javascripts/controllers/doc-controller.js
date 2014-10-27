@@ -13,6 +13,7 @@ app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocServic
     $timeout(function() {
       $scope.saveComplete = false;
     }, 5000);
+    $scope.download();
   };
 
   $scope.newDoc = function() {
