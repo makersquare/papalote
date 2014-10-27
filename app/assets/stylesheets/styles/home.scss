@@ -1,0 +1,75 @@
+.slide {
+  &.intro {
+    background: $light-grey;
+  }
+  &.start {
+    background: $light-grey-hover;
+    h2 {
+      line-height: 28px;
+      margin-bottom: 20px;
+    }
+  }
+  &.team {
+    background: $font-xlight;
+  }
+}
+
+.intro {
+  button {
+    width: 215px;
+    padding: 15px 30px;
+    margin-right: 10px;
+  }
+  .fa {
+    margin-right: 5px;
+  }
+}
+
+.start {
+  h2 {
+    color: $font-med;
+  }
+}
+
+.create-container {
+  width: 40%;
+  margin: 0 auto;
+  position: relative;
+  .create {
+    position: absolute;
+    top: 0px;
+    border: 0;
+    border: 1px solid $light-grey-border;
+    transition: background ease-in-out 0.25s;
+    padding: 0 15px;
+    height: 45px;
+    width: 65px;
+    display: inline-block;
+    overflow: visible;
+    &:hover {
+      cursor: pointer;
+      background: $light-grey-hover;
+    }
+    &.file {
+      right: 65px;
+      display: inline-block;
+    }
+    &:hover {
+      background: $light-grey-hover;
+    }
+    &.file {
+      right: 64px;
+      padding-top: 7px;
+    }
+    &.folder {
+      padding-top: 10px;
+      right: 0;
+    }
+  }
+}
+
+.team {
+  #photo {
+    margin: 10px auto;
+  }
+}

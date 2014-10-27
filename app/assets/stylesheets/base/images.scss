@@ -1,0 +1,22 @@
+.avatar {
+  border-radius: 100%;
+  opacity: 0.5;
+  padding: 1px;
+  margin-bottom: 3px;
+  &:hover {
+    cursor: pointer;
+    opacity: 1.0;
+  }
+  &.xlg {
+    width: 200px;
+    height: 200px;
+    opacity: 1.0;
+  }
+  &.med {
+    width: 43px;
+    height: 43px;
+  }
+  &.online {
+    opacity: 1.0;
+  }
+}
