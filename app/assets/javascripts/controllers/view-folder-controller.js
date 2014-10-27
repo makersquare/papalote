@@ -1,11 +1,14 @@
 app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', 'Folder',
   function($scope, $routeParams, $location, Folder) {
-    $scope.folder = Folder.folderResource.get({id: $routeParams["id"]});
+    $scope.folder = Folder.folderResource.get({id: $routeParams["id"]}, function(data){
+      $scope.parentFolder = data.parentfolder_id;
+    });
     $scope.backToParentView = false;
     $scope.folderDocs = Folder.folderDocResource.get({folder_id: $routeParams["id"]}, function(data){
       $scope.subfolders = data.folders;
       $scope.docs = data.docs;
-      if ($scope.parentFolder === null) {
+      console.log($scope.parentfolder);
+      if ($scope.parentFolder === undefined) {
         console.log("hello");
         $scope.backToParentView = false;
       }
@@ -13,7 +16,6 @@ app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', '
         $scope.backToParentView = true;
       }
     });
-    $scope.parentFolder = $scope.folder.parentfolder_id;
 
     $scope.updateFolderName = function(folder) {
       Folder.folderResource.update(folder);
