@@ -57,7 +57,7 @@ class DocsController < ApplicationController
   end
 
   def download
-    path = ::Rails.Application.config.download_path
+    path = ::Rails.application.config.download_path
     File.open(path + @doc.name, 'w') { |f| f.write(@doc.content) }
     render json: @doc
   end
