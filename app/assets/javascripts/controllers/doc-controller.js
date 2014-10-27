@@ -13,16 +13,18 @@ app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocServic
     $timeout(function() {
       $scope.saveComplete = false;
     }, 5000);
-    $scope.download();
+    $scope.createDownloadFile();
   };
 
   $scope.newDoc = function() {
     DocService.newDoc();
   };
 
-  $scope.download = function(){
+  $scope.createDownloadFile = function(){
     Download.get({id: $scope.id}, function(data){
       $scope.file_name = './downloads/' + data.name;
     });
-  }();
+  };
+
+  $scope.createDownloadFile();
 }]);

@@ -57,7 +57,7 @@ class DocsController < ApplicationController
   end
 
   def download
-    File.open('public/downloads/' + @doc.name, 'w') { |f| f.write(@doc.content) }
+    File.open(ENV['download_path'] + @doc.name, 'w') { |f| f.write(@doc.content) }
     render json: @doc
   end
 
