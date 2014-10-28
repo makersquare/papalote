@@ -1,17 +1,32 @@
-<div class="show-folder">
-  <input type="textarea" ng-model="currentFolder.name"><br>
-  <button ng-click="updateFolderName(currentFolder)">Update Name</button>
-  <h3>Files in this folder (click to go to the file):</h3>
-  <div ng-repeat="doc in docs">
-    <p ng-click="findDoc(doc)">{{ doc.name }}</p>
-  </div>
-  <div ng-repeat="subfolder in subfolders">
-    <p ng-click="findSubFolder(subfolder)">{{ subfolder.name }}</p>
-  </div>
-  <div>
-    <input ng-model="name" type='textarea'/><button ng-click="newDoc(currentFolder)">Create New File</button>
-	</div>
-  <div ng-show="backToParentView">
-    <button ng-click="findParentFolder(currentFolder)">Back to Parent Folder</button>
+<div class="row">
+  <div class="content small-12 columns">
+    <div class="show-folder">
+      <div ng-show="backToParentView">
+        <button ng-click="findParentFolder(currentFolder)">
+        <i class="fa fa-angle-double-left"></i> 
+        Back to Parent Folder
+        </button>
+      </div>
+      <button class="edit grey btn-right" ng-click="updateFolderName(currentFolder)">Edit</button>
+      <div class="left-of-btn">
+        <input type="textarea" ng-model="currentFolder.name" class="med">
+      </div>
+      <div ng-repeat="doc in docs">
+        <p ng-click="findDoc(doc)">
+          <i class="fa fa-file-o"></i>
+          {{ doc.name }}
+        </p>
+      </div>
+      <div ng-repeat="subfolder in subfolders">
+        <p ng-click="findSubFolder(subfolder)">
+        <i class="fa fa-folder-o"></i>
+        {{ subfolder.name }}
+        </p>
+      </div>
+      <input ng-model="name" type='textarea' class="med" placeholder="File Name"/>
+      <button ng-click="newDoc(currentFolder)">
+        <i class="fa fa-file-o"></i> Create New File
+      </button>
+    </div>
   </div>
 </div>

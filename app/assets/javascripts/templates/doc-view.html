@@ -1,26 +1,11 @@
 <div class="row">
   <div class="content doc-view small-12 columns">
-
-    <div class="collaborators">
-      <img src="http://img4.wikia.nocookie.net/__cb20130405221720/hatenahaiku/images/a/a8/Twitter-egg.black.jpg" class="avatar online">
-      <img src="http://img4.wikia.nocookie.net/__cb20130405221720/hatenahaiku/images/a/a8/Twitter-egg.black.jpg" class="avatar">
-      <img src="http://img4.wikia.nocookie.net/__cb20130405221720/hatenahaiku/images/a/a8/Twitter-egg.black.jpg" class="avatar">
-      <i class="fa fa-plus-circle"></i>
-    </div>
-
     <p ng-show="saveComplete">Saving..</p>
-    <!-- <label for="title">Document Name:</label> -->
-    <input ng-disabled="titleEditDisable" onblur="this.placeholder = 'Document Name'" type="text" ng-model="doc.name" id="title" value='{{doc.name}}' placeholder="Document Name">
     <a ng-href="{{file_name}}" ng-show="downloadDoc" download>
       <button type="button">Download</button> 
     </a>
-
-    <!-- <label for="content">Content:</label> -->
+    <input ng-disabled="titleEditDisable" onblur="this.placeholder = 'Document Name'" type="text" ng-model="doc.name" value='{{doc.name}}' placeholder="Document Name" class="lg no-border">
     <div class="editor" doc-directive></div>
-
-    <!-- removed type="button" -->
-    <button ng-click="saveDoc(doc)" class="save-btn">Save</button>
-
-
+    <button ng-click="saveDoc(doc)" class="grey">Save</button>
   </div>
 </div>
