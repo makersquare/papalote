@@ -1,0 +1,64 @@
+.slide {
+  &.intro {
+    background: #EAEAEA;
+  }
+  &.start {
+    background: #84c8c9;
+  }
+  &.team {
+    background: #A8D8D8;
+  }
+}
+
+.create-container {
+  width: 40%;
+  margin: 0 auto;
+  position: relative;
+  input {
+    height: 50px;
+
+    font-size: 18px;
+  }
+  input[type="text"] {
+    margin: 20px 0;
+    text-align: left;
+    border: 0;
+    box-shadow: none;
+    border-radius: none;
+    &:focus {
+      box-shadow: none;
+      border-radius: none;
+    }
+  }
+  .create {
+    position: absolute;
+    top: 0px;
+    border: 0;
+    background: $light-grey;
+    transition: background ease-in-out 0.25s;
+    padding: 0 15px;
+    height: 50px;
+    display: inline-block;
+    border: 1px solid $light-grey-hover;
+    &:hover {
+      background: $light-grey-hover;
+    }
+    &.file {
+      right: 58px;
+      padding-top: 7px;
+    }
+    &.folder {
+      padding-top: 10px;
+      right: 0;
+    }
+  }
+}
+
+.team {
+  .photo {
+    width: 200px;
+    height: auto;
+    margin: 10px auto;
+    border-radius: 100%;
+  }
+}

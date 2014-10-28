@@ -11,8 +11,8 @@ var app = angular.module('mksDriveApp',
 app.config(["$routeProvider", function($routeProvider){
 
   $routeProvider.when("/", {
-    templateUrl: "<%= asset_path('templates/test.html') %>",
-    controller: "TestCtrl"
+    templateUrl: "<%= asset_path('templates/home.html') %>",
+    // controller: "TestCtrl"
   })
   .when('/docs/new', {
     templateUrl: "<%= asset_path('templates/doc-view.html') %>",

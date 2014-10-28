@@ -1,5 +1,5 @@
 #header {
-  background: #39424E;
+  background: $dark-grey-hover;
   height: 80px;
   /*font*/
   color: #ccc;
@@ -24,11 +24,10 @@
       width: 80px;
       height: 80px;
       line-height: 75px;
-      background: #333c47;
-      border: 1px solid #333c47;
+      background: $dark-grey;
+      border: 1px solid $dark-grey;
       &:hover {
-        background: #39424E;
-        border: 1px solid #333c47;
+        background: $dark-grey-hover;
         ul {
           display: block;
         }
@@ -57,13 +56,13 @@
       width: 220px;
       li {
         text-align: left;
-        background: #333c47;
+        background: $dark-grey;
         color: #ccc;
         padding: 15px 5px;
         transition: background ease-in 0.5s;
         &:hover {
           color: #fff;
-          background: #39424E;
+          background: $dark-grey-hover;
         }
       }
     }
