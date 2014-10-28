@@ -17,13 +17,16 @@
   <header id="header" class="fixed">
     <div class="nav-bar">
       <div class="logo">
-        Papalote
+        <a href="/">Papalote</a>
       </div>
       <div class="top-nav-bar">
-        <a href="#/chat" class="nav-link"><i class="fa fa-comments"></i>
-        <a href="#/folders/new" class="nav-link"><i class="fa fa-folder"> +</i>
-        <a href="#/docs/new" class="nav-link"><i class="fa fa-file-text-o"> +</i>
-        <a href="#" class="nav-link nav-user">
+        <a href="#/test-chat" class="nav-link">
+          <i class="fa fa-comments"></i>
+        </a><a href="#/folders/new" class="nav-link">
+          <i class="fa fa-folder"> +</i>
+        </a><a href="#/docs/new" class="nav-link">
+          <i class="fa fa-file-text-o"> +</i>
+        </a><a href="#" class="nav-link nav-user">
           <%= image_tag("parag.gif", class: "avatar") %>
           <span class="nav-username">Parag da DON <i class="fa fa-sort-down"></i></span>
           <ul>
@@ -31,33 +34,22 @@
             <li><i class="fa fa-sign-out"></i> Log Out</li>
           </ul>
         </a>
-        <!-- <ul>
-          <li class="nav-btn"><a href="#/chat"><i class="fa fa-comments"></i></li>
-          <li class="nav-btn"><a href="#/folders/new"><i class="fa fa-folder"> +</i></li>
-          <li class="nav-btn"><a href="#/docs/new"><i class="fa fa-file-text-o"> +</i></li>
-          <li class="has-dropdown">
-            <a href="#">
-              <%= image_tag("parag.gif", class: "avatar") %>
-              Parag Da DON
-            </a>
-            <ul class="dropdown">
-              <li><a href="#">User Settings</a></li>
-              <li><a href="#">Sign Out</a></li>
-            </ul>
-          </li>
-        </ul> -->
       </div>
     </div>
   </header>
 
-    <section id="main-section">
-      <%= yield %>
-    </section>
+  <section id="main-section">
+    <%= yield %>
+  </section>
 
-    <footer>
-      Created by MakerSquare San Francisco
-    </footer>
-    <%= javascript_include_tag "application" %>
+<!--   <section id="chatter">
+    <i class="fa fa-user"></i> <i class="fa fa-circle online"></i>
+  </section>    --> 
+
+  <footer>
+    Created by MakerSquare San Francisco
+  </footer>
+  <%= javascript_include_tag "application" %>
 
 
   </body>
