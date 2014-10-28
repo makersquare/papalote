@@ -22,6 +22,8 @@
 //= require app
 //= require flow
 //= require ng-flow
+//= require websocket_rails/main
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
