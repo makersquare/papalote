@@ -18,7 +18,7 @@ class DocsController < ApplicationController
     else
       @doc = Doc.new(doc_params)
     end
-    
+
 
     respond_to do |format|
       if @doc.save
@@ -56,6 +56,14 @@ class DocsController < ApplicationController
     if !Dir.exists?(path)
       Dir.mkdir(path)
     end
+
+    # clean up any files older than one day
+    Dir.entries(path).each do |file|
+      if (Time.now - File.ctime(path + file)) > (60*60*24) && file.length > 2
+        File.delete(path + file)
+      end
+    end
+
     File.open(path + @doc.name, 'w') { |f| f.write(@doc.content) }
     render json: @doc
   end
