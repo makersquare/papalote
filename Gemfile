@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.0'
 
 # User Authentication OmniAuth
 gem 'omniauth-github'
-
+gem 'websocket-rails'
 group :doc do
   gem 'sdoc', require: false
 end

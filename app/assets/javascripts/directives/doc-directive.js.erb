@@ -26,7 +26,8 @@ app.directive('docDirective', ['Doc', '$route', function(Doc, $route) {
         }
       });
 
-      scope.changeText = function() {
+      var dispatcher = new WebSocketRails(window.location.host+'/websocket');
+      var changeLineNumber = function() {
         if (scope.doc.content === null) {
           document.getElementById('lineObj').innerHTML = '<div>1</div>';
         } else {
@@ -39,6 +40,17 @@ app.directive('docDirective', ['Doc', '$route', function(Doc, $route) {
         }
       };
 
+      scope.changeText = function() {
+        changeLineNumber();
+        dispatcher.trigger('change_doc',scope.doc);
+      };
+
+      dispatcher.bind('change_doc',function(data) {
+        document.getElementById('content').value = data.content;
+        scope.doc.content = data.content;
+        changeLineNumber();
+      });
+      
       if ($route.current.params.id) {
         scope.doc = Doc.get({id: $route.current.params.id}, function(data) {
           if (data.content === null) {
