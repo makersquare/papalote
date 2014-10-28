@@ -4,7 +4,7 @@ app.controller('ChatController', ['$scope', '$timeout', 'ChatService',
 
     $scope.sendMessage = function(data) {
       ChatService.sendMessage(data);
-      $scope.message.message = '';
+      $scope.message = {message: ""};
       return false;
     };
 

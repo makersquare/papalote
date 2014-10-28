@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   resources :docs, defaults: {format: :json}
   get "docs/:id/download", to: "docs#download"
 
+  get '/users/current_user', to: 'users#current_user'
+
 end
