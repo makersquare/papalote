@@ -11,6 +11,6 @@ app.factory('DocService', ['$location', 'Doc', function($location, Doc) {
     },
     newDoc: function() {
       $location.path('/docs/new');
-    }
+    },
   };
 }]);
