@@ -1,24 +1,30 @@
-<<<<<<< HEAD
 // color legend
+
+$font-dark: #111;
+$font-med: #999;
+$font-xmed: #777;
+$font-light: #ddd;
+$font-xlight: #eee;
+
 $dark-grey: #333c47;
 $dark-grey-hover: #39424E;
-$light-grey: #EAEAEA;
+
+$light-grey: #eee;
 $light-grey-hover: #ddd;
+$light-grey-border: #a6a6a6;
+$dark-shadow: #000;
 
+$primary: #1ABC9C;
+$primary-fade: #1ec9a7;
+$primary-dark: #18af91;
+$primary-darkest: #16A085;
 
-=======
->>>>>>> fixed header
 @import "base/fonts.scss";
 @import "base/box.scss";
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> fixed new document view and chat
-@import "styles/chat.scss";
-@import "styles/doc.scss";
+@import "base/images.scss";
 @import "styles/header.scss";
 @import "styles/home.scss";
-=======
+@import "styles/chat.scss";
+@import "styles/folder.scss";
 @import "styles/doc.scss";
-@import "styles/header.scss";
->>>>>>> ready for kim
+@import "styles/footer.scss";

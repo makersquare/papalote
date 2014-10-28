@@ -1,41 +1,23 @@
 #header {
-  background: #39424E;
+  background: $dark-grey-hover;
   height: 80px;
-  /*font*/
-  color: #ccc;
-  a {
-    color: #ccc;
-    &:hover {
-      color: #fff;
-    }
-  }
   .logo {
-    float: left;
     margin: 15px 35px;
-    /* font */
-    font-size: 30px;
   }
   .top-nav-bar {
-    float: right;
-
     .nav-link {
       text-align: center;
       display: inline-block;
       width: 80px;
       height: 80px;
       line-height: 75px;
-      background: #333c47;
-      border: 1px solid #333c47;
+      background: $dark-grey;
+      border-right: 1px solid $dark-grey-hover;
       &:hover {
-        background: #39424E;
-        border: 1px solid #333c47;
+        background: $dark-grey-hover;
         ul {
           display: block;
         }
-      }
-      .fa {
-        /*font*/
-        font-size: 22px;
       }
     }
     .nav-user {
@@ -43,34 +25,24 @@
       height: 80px;
       .fa {
         margin: 0 10px; 
-        // font
-        font-size: 18px;
       }
     }
     ul {
-      margin: 0;
-      padding: 0;
       list-style: none;
       display: none;
       position: absolute;
-      background: black;
       width: 220px;
       li {
         text-align: left;
-        background: #333c47;
-        color: #ccc;
+        background: $dark-grey;
+        color: $font-light;
         padding: 15px 5px;
         transition: background ease-in 0.5s;
         &:hover {
-          color: #fff;
-          background: #39424E;
+          color: $font-xlight;
+          background: $dark-grey-hover;
         }
       }
     }
-  }
-  .avatar {
-    width: 40px;
-    height: auto;
-    margin-right: 10px;
   }
 }

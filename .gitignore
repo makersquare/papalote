@@ -25,5 +25,10 @@
 # Ignore github_omniauth.env
 /github_omniauth.env
 
+<<<<<<< HEAD
 # Ignore public folder
 /public/downloads
+=======
+# Ignore Downloaded file
+/public/downloads
+>>>>>>> begin styling homepage and styleguide changes
