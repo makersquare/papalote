@@ -4,7 +4,7 @@
       <div class="chat-messages">
         <ul class="message-list">
           <li ng-repeat="m in messages">
-            <strong>{{m.user}}:</strong> {{m.message}}
+            <strong>{{m.user}}:</strong> <span ng-bind-html="m.message | emoji"></span>
           </li>
         </ul>
       </div>

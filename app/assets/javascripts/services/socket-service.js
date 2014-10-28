@@ -23,7 +23,8 @@
  */
 
 app.factory('Socket', ['$rootScope', function($rootScope){
-  var socket = io.connect('10.10.10.10:8080', {
+  var url = window.location.hostname + ':8080';
+  var socket = io.connect(url , {
     reconnection: false
   });
   return {
