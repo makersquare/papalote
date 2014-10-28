@@ -22,6 +22,7 @@
         <li class="toggle-topbar menu-icon"><a href="#"><span>Button</span></a></li>
       </ul>
 
+<<<<<<< HEAD
       <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="right">
@@ -58,6 +59,44 @@
   </div>
 
     <%= javascript_include_tag "application" %>
+=======
+  <header id="header" class="fixed">
+    <div class="nav-bar">
+      <div class="logo">
+        <a href="/">Papalote</a>
+      </div>
+      <div class="top-nav-bar">
+        <a href="#/test-chat" class="nav-link">
+          <i class="fa fa-comments"></i>
+        </a><a href="#/folders/new" class="nav-link">
+          <i class="fa fa-folder"> +</i>
+        </a><a href="#/docs/new" class="nav-link">
+          <i class="fa fa-file-text-o"> +</i>
+        </a><a href="#" class="nav-link nav-user">
+          <%= image_tag("parag.gif", class: "avatar") %>
+          <span class="nav-username">Parag da DON <i class="fa fa-sort-down"></i></span>
+          <ul>
+            <li><i class="fa fa-cog"></i> Settings</li>
+            <li><i class="fa fa-sign-out"></i> Log Out</li>
+          </ul>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section id="main-section">
+    <%= yield %>
+  </section>
+
+<!--   <section id="chatter">
+    <i class="fa fa-user"></i> <i class="fa fa-circle online"></i>
+  </section>    --> 
+
+  <footer>
+    Created by MakerSquare San Francisco
+  </footer>
+  <%= javascript_include_tag "application" %>
+>>>>>>> fixed new document view and chat
 
 
   </body>

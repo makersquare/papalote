@@ -1,30 +1,60 @@
 .doc-view {
+  .collaborators {
+    float: right;
+    /*font*/
+    font-size: 40px;
+    color: #999;
+    /*refactor avatar css*/
+  .fa:hover {
+    color: #666;
+  }
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    opacity: 0.5;
+  }
+  .online {
+    opacity: 1.0;
+  }
+  }
+
   input {
     border: 0;
     box-shadow: none;
     border-radius: 0;
-    color: gray;
-
+    color: #999;
+    padding: 0;
     font-size: 48px;
-    height: 100px;
+    height: 70px;
+    width: 100%;
     &:focus {
       border: 0;
       background: white;
       box-shadow: none;
+      color: #333;
     }
     &::-webkit-input-placeholder { /* WebKit browsers */
-      color: gray;
+      color: #999;
     }
     &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-      color: gray;
+      color: #999;
       opacity: 1;
     }
     &::-moz-placeholder { /* Mozilla Firefox 19+ */
-      color: gray;
+      color: #999;
       opacity: 1;
     }
     &:-ms-input-placeholder { /* Internet Explorer 10+ */
-      color: gray;
+      color: #999;
+    }
+  }
+  .save-btn {
+  /*TBU - refactor buttons*/
+    background: #999;
+    margin: 10px 0;
+    &:hover {
+      background: #888;
     }
   }
 }
@@ -39,18 +69,19 @@
     tab-size: 2;
   }
   .textAreaWithLines {
-    font-family:courier;
-    border:1px solid black;
-    width: 693px;
+    font-family: courier;
+    border: 1px solid #999;
+    /*width: 693px;*/
+    width: 100%;
     height: 302px;
     overflow: auto;
     position: relative;
   }
 
   .textAreaWithLines textarea,.textAreaWithLines div {
-    border:0px;
-    line-height:100%;
-    font-size:15px;
+    border: 0px;
+    line-height: 100%;
+    font-size: 20px;
   }
 
   #lineObj {
@@ -62,5 +93,125 @@
     width: 27px;
     height: 300px;
     text-align: right;
+  }
+}
+
+
+/*LANDING PAGE*/
+
+#landing {
+  text-align: center;
+  .name {
+    /*font*/
+    font-size: 50px;
+  }
+
+  .tagline {
+    /*font*/
+    font-size: 30px;
+  }
+
+  .benefit {
+    /*font*/
+    font-size: 22px;
+    font-weight: bold;
+    margin: 30px;
+    display: inline-block;
+    width: 300px;
+    height: 400px;
+    text-align: center;
+    .benefit-icon {
+      position: relative;
+      border: 1px solid #999;
+      height: 250px;
+      width: 250px;
+      border-radius: 100%;
+      margin: 25px;
+    }
+    .github {
+      height: 17px;
+      width: auto;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+#chatter {
+  background: #eee;
+  width: 250px;
+  height: 40px;
+  float: right;
+  border-radius: 10px 10px 0 0;
+  bottom: 100%;
+  .fa-user {
+    /*font*/
+    font-size: 24px;
+    margin: 10px 0 0 20px;
+  }
+  .fa-circle {
+    /*font*/
+    font-size: 12px;
+  }
+  .online {
+    color: green;
+  }
+  .offline {
+    color: #333;
+  }
+}
+
+#chat {
+  float: right;
+  .fa-close {
+    float: right;
+    margin: 10px;
+    display: block;
+    /*font*/
+    color: #333;
+  }
+  .message-list {
+    border: 1px solid #999;
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
+    width: 255px;
+    height: 500px;
+
+  }
+  .chat-input {
+    width: 200px;
+    height: 30px;
+    /*font*/
+    font-size: 12px;
+  }
+  .chat-send {
+    background: #ccc;
+    width: 50px;
+    height: 30px;
+    font-size: 12px;
+    padding: 0;
+    &:hover {
+      background: #bbb;
+    }
+  }
+}
+
+#all-folder-docs {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      line-height: 40px;
+    }
+  }
+  .avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    opacity: 0.5;
+  }
+  .online {
+    opacity: 1.0;
   }
 }
