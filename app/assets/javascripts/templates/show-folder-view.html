@@ -9,7 +9,7 @@
     <p ng-click="findSubFolder(subfolder)">{{ subfolder.name }}</p>
   </div>
   <div>
-    <input ng-model="name" type='textarea'/><button ng-click="newDoc(currentFolder)">Create New File</button>
+    <input ng-model="name" type='textarea'/><button ng-click="newDoc(currentFolder)">Create New File</button><button ng-click="newFolder(currentFolder)">Create New Folder</button>
 	</div>
   <div ng-show="backToParentView">
     <button ng-click="findParentFolder(currentFolder)">Back to Parent Folder</button>
