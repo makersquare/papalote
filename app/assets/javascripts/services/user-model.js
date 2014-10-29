@@ -1,4 +1,4 @@
-app.factory('User', function(){
-  var user = 'Ronald McDonald';
-  return {user: user};
-});
+app.factory('User', ['$resource',
+	function($resource){
+		return $resource('/user');
+}]);
