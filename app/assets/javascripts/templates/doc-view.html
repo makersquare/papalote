@@ -7,7 +7,8 @@
     </a>
     <p ng-show="saveComplete">Save Completed</p>
     <label for="title">Document Name:</label>
-    <input ng-disabled="titleEditDisable" type="text" ng-model="doc.name" id="title" value='{{doc.name}}'>
+    <div ng-click="editName()">
+    <input ng-disabled="titleEditDisable" type="text" ng-model="doc.name" id="title" value='{{doc.name}}'></div>
   </div>
 </div>
 <div class='row'>

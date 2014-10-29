@@ -7,6 +7,7 @@ app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocServic
     currentFolderId = data.folder_id
     $scope.backToParentView = !!currentFolderId;
   });
+
   $scope.titleEditDisable = true;
   $scope.saveComplete = false;
   $scope.downloadDoc = true;
@@ -14,6 +15,7 @@ app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocServic
 
   $scope.saveDoc = function(doc) {
     DocService.updateDoc(doc);
+    $scope.titleEditDisable = true;
     $scope.saveComplete = true;
     $timeout(function() {
       $scope.saveComplete = false;
@@ -25,10 +27,14 @@ app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocServic
     DocService.newDoc();
   };
 
-  $scope.createDownloadFile = function(){
+  $scope.createDownloadFile = function() {
     Download.get({id: $scope.id}, function(data){
       $scope.file_name = './downloads/' + data.name;
     });
+  };
+
+  $scope.editName = function() {
+    $scope.titleEditDisable = false;
   };
 
   $scope.createDownloadFile();

@@ -1,33 +1,5 @@
-#content {
-  padding-top: 2px;
+#editor {
   position: absolute;
-  left: 30px;
-}
-textarea, pre {
-  tab-size: 2;
-}
-.textAreaWithLines {
-  font-family:courier;
-  border:1px solid black;
-  width: 693px;
-  height: 302px;
-  overflow: auto;
-  position: relative;
-}
-
-.textAreaWithLines textarea,.textAreaWithLines div {
-  border:0px;
-  line-height:100%;
-  font-size:15px;
-}
-
-#lineObj {
-  color:black;
-  font-size: 15px;
-  position: absolute;
-  top: 2px;
-  left: 0px;
-  width: 27px;
-  height: 300px;
-  text-align: right;
+  width: 500px;
+  height: 400px;
 }
