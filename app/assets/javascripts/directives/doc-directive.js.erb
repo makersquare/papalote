@@ -1,5 +1,5 @@
 // This directive is used for doc-view.html
-// 
+//
 app.directive('docDirective', ['Doc', '$route', function(Doc, $route) {
   return {
     templateUrl: "<%= asset_path('assets/templates/doc-textarea.html') %>",
@@ -13,11 +13,12 @@ app.directive('docDirective', ['Doc', '$route', function(Doc, $route) {
         channel.trigger('change_doc',scope.doc);
       });
 
+      // Theme selector (theme files found in 'src-min/')
       scope.changeTheme = function() {
         editor.setTheme("ace/theme/" + scope.theme);
       };
 
-
+      // creates editor view based upon passed in mode (e.g. ruby, javascript, etc.)
       var loadFile = function(data) {
         editor = ace.edit("editor");
         editor.setTheme("ace/theme/twilight");
@@ -27,6 +28,7 @@ app.directive('docDirective', ['Doc', '$route', function(Doc, $route) {
         }
       };
 
+      // sets programming language based on file extension
       var setMode = function(data) {
         if (data.name.slice(data.name.indexOf('.')+1) === 'js') {
           var JavaScriptMode = require("ace/mode/javascript").Mode;
@@ -37,6 +39,8 @@ app.directive('docDirective', ['Doc', '$route', function(Doc, $route) {
         }
       };
 
+      // if existing doc: pulls contents from database and pushes into editor
+      // if new doc: make palceholder get request to get callback and load blank editor
       if ($route.current.params.id) {
         scope.doc = Doc.get({id: $route.current.params.id}, function(data) {
           loadFile(data);
@@ -44,17 +48,18 @@ app.directive('docDirective', ['Doc', '$route', function(Doc, $route) {
           editor.clearSelection();
         });
       } else {
-        channel = dispatcher.subscribe($route.current.params.id);
-        scope.test = Doc.get({id: 1}, function(data) {
+        placeholderGetRequest = Doc.get({id: 1}, function(data) {
           loadFile();
           editor.setValue("");
         });
       }
 
+      // on navigation to another document, close the WebSocket channel
       scope.$on('$routeChangeStart', function(a, b) {
         dispatcher.trigger("client_disconnected",$route.current.params.id);
       });
 
+      // sets WebSocket listener to view changes made by another user on same document
       channel.bind('change_doc',function(data) {
         var cursor = editor.getCursorPosition();
         editor.session.doc.setValue(data.content);

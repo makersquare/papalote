@@ -1,7 +1,8 @@
 class LiveController < WebsocketRails::BaseController
-  def show_all
+
+  # Sends updates to all subscribers to the same channel (set by document id)
+  def channel_broadcast
     WebsocketRails[message[:id]].trigger(:change_doc, {:content => message[:content]})
-    # broadcast_message :change_doc, {:content => message[:content] }
   end
 
   def delete_user
