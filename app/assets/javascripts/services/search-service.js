@@ -1,8 +1,9 @@
-app.factory('searchFactory', ['$http', function($http){
+app.factory('SearchFactory', ['$http', function($http){
   var urlBase = '/search';
   return {
     find: function (keywords) {
       return $http.get(urlBase + '/' + keywords);
+      //$http.get(urlBase + '/?query' + keywords);  
     }
   }
 }]);

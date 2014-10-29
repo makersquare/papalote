@@ -1,14 +1,10 @@
-
-app.controller('SearchResultsCtrl', ['$scope', '$routeParams','searchFactory',
-  function($scope, $routeParams, searchFactory) {
-
+app.controller('SearchResultsCtrl', ['$scope', '$routeParams','SearchFactory',
+  function($scope, $routeParams, SearchFactory) {
     $scope.folders = [];
     $scope.documents = [];
 
-    searchFactory.find($routeParams.keywords).then(function(obj) {
+    SearchFactory.find($routeParams.keywords).then(function(obj) {
       $scope.folders = obj.data.folders;
       $scope.documents = obj.data.docs;
     }); 
 }]);
-
-

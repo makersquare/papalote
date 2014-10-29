@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20141024232306) do
 
   create_table "docs", force: true do |t|
     t.string   "name"
-    t.text     "content"
+    t.string   "content"
     t.integer  "folder_id"
     t.datetime "created_at"
     t.datetime "updated_at"
