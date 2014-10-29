@@ -4,4 +4,3 @@ app.factory('Doc', ['$resource', function($resource) {
     {update: {method: "PATCH"}}
   );
 }]);
-
