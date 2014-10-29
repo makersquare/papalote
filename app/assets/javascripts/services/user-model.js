@@ -1,4 +1,11 @@
 app.factory('User', ['$resource',
-	function($resource){
-		return $resource('/user');
+  function($resource) {
+    var userRsc = $resource('/user');
+
+    var currentUser = userRsc.get(function(data){
+    });
+
+    return {
+      currentUser: currentUser
+    }
 }]);
