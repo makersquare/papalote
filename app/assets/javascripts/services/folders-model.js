@@ -15,8 +15,8 @@ app.factory('Folder', ['$resource', '$location', 'DocService',
   return {
     folderDocResource: folderDocResource,
     folderResource: folderResource,
-    createFolder: function(name) {
-      var newFolder = new folderResource({name: name});
+    createFolder: function(folder) {
+      var newFolder = new folderResource(folder);
       newFolder.$save(function(data) {
         $location.path("/folders/" + data.id);
       });
