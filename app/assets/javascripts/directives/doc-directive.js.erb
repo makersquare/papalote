@@ -6,6 +6,8 @@ app.directive('docDirective', ['Doc', '$route', function(Doc, $route) {
     scope: false,
     // link contains all the functions that manipulate the DOM
     link: function(scope, element, attrs) {
+      var dispatcher = new WebSocketRails(window.location.host+'/websocket');
+      var channel = dispatcher.subscribe($route.current.params.id);
       element.bind("keyup", function(event) {
         scope.doc.content = editor.getValue();
         channel.trigger('change_doc',scope.doc);
@@ -15,9 +17,7 @@ app.directive('docDirective', ['Doc', '$route', function(Doc, $route) {
         editor.setTheme("ace/theme/" + scope.theme);
       };
 
-      var dispatcher = new WebSocketRails(window.location.host+'/websocket');
-      var channel = dispatcher.subscribe($route.current.params.id);
-    
+
       var loadFile = function(data) {
         editor = ace.edit("editor");
         editor.setTheme("ace/theme/twilight");
@@ -44,11 +44,16 @@ app.directive('docDirective', ['Doc', '$route', function(Doc, $route) {
           editor.clearSelection();
         });
       } else {
+        channel = dispatcher.subscribe($route.current.params.id);
         scope.test = Doc.get({id: 1}, function(data) {
           loadFile();
           editor.setValue("");
         });
       }
+
+      scope.$on('$routeChangeStart', function(a, b) {
+        dispatcher.trigger("client_disconnected",$route.current.params.id);
+      });
 
       channel.bind('change_doc',function(data) {
         var cursor = editor.getCursorPosition();
