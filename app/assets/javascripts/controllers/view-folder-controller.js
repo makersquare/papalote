@@ -34,9 +34,6 @@ app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', '
       Folder.createDocForFolder({folder_id: folder.id, name: $scope.name});
     };
     $scope.newFolder = function(folder){
-      console.log("hello")
-      console.log($scope.name)
-      console.log(folder.id)
       Folder.createFolder({name: $scope.name, parentfolder_id: folder.id})
     }
   }]);
