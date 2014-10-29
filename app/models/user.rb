@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :docs, foreign_key: "owner_id"
   
   def self.create_user(auth)
     create! do |user|
