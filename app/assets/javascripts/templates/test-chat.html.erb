@@ -1,14 +1,22 @@
 <div ng-controller="ChatController" id="chat">
 
+
   <ul class="message-list">
-    <li ng-repeat="m in messages">
-      {{m.user}}: {{m.message}}
-    </li>
+    <div ng-repeat="m in messages">
+      <li ng-bind-html-unsafe="m.message | emoji"></li>
+      <li>{{m.user}}: {{m.message}}</li>
+    </div>
   </ul>
+
+
+
+<textarea ng-model="message" ng-bind-html="message | emoji"></textarea>
+
 
   <form ng-submit="sendMessage(message)" class="send-message">
     <input ng-model="message.message" autocomplete="off" /><button class="tiny">Send</button>
   </form>
+  <p ng-bind-html-unsafe="message.message | emoji"></p>
 
 </div>
 

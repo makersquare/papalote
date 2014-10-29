@@ -19,6 +19,7 @@
 //= require angular-animate
 //= require angular-route
 //= require angular-mocks
+//= require angular-emoji-filter
 //= require app
 //= require flow
 //= require ng-flow
