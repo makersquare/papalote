@@ -23,3 +23,6 @@
 
 # Ignore github_omniauth.env
 /github_omniauth.env
+
+# Ignore download folder
+/public/downloads
