@@ -23,7 +23,12 @@
 //= require flow
 //= require ng-flow
 //= require websocket_rails/main
-//= require_tree .
+//= require app.js.erb
+//= require ace-editor/ace.js
+//= require_tree ./controllers
+//= require_tree ./directives
+//= require_tree ./services
+//= require_tree ./templates
 
 $(function(){ $(document).foundation(); });
 

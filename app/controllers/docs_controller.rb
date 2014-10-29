@@ -13,7 +13,6 @@ class DocsController < ApplicationController
   end
 
   def create
-
     if params['file']
       new_doc =  {
         name: params['file'].original_filename,
@@ -23,8 +22,6 @@ class DocsController < ApplicationController
     else
       @doc = Doc.new(doc_params)
     end
-    
-
     respond_to do |format|
       if @doc.save
         format.html { redirect_to @doc, notice: 'Doc was successfully created.' }
