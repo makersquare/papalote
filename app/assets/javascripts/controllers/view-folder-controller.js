@@ -1,5 +1,5 @@
-app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', 'Folder',
-  function($scope, $routeParams, $location, Folder) {
+app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', 'Folder', 'User',
+  function($scope, $routeParams, $location, Folder, User) {
     $scope.folder = Folder.folderResource.get({id: $routeParams["id"]});
     $scope.folder.$promise.then(function(data){
       $scope.parentFolder = data.parentfolder_id;
@@ -17,12 +17,19 @@ app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', '
         $scope.backToParentView = true;
       }
     });
+    $scope.user = User.get()
 
     $scope.updateFolderName = function(folder) {
       Folder.folderResource.update(folder);
     };
     $scope.findDoc = function(doc) {
-      $location.path("/docs/" + doc.id);
+      console.log($scope.user.id)
+      console.log(doc.owner_id)
+      if ($scope.user.id === doc.owner_id) {
+        $location.path("/docs/" + doc.id);
+      } else {
+        alert("YOU ARE NOT THE OWNER OF THIS FILE!!!!!!!")
+      }
     };
     $scope.findSubFolder = function(subfolder) {
       $location.path('/folders/' + subfolder.id);
