@@ -1,4 +1,9 @@
 app.factory('User', ['$resource',
-	function($resource){
-		return $resource('/user');
+	function($resource) {
+    var currentUser;
+    return {
+      currentUser: currentUser ||= $resource('/user', function(data){
+        currentUser = data;
+      })
+    }
 }]);
