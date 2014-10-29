@@ -2,11 +2,10 @@ app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocServic
   function($scope, Doc, $timeout, $route, DocService, Download) {
 
   $scope.id = $route.current.params.id;
-  $scope.doc = Doc.get({id: $route.current.params.id});
   $scope.titleEditDisable = true;
   $scope.saveComplete = false;
   $scope.downloadDoc = true;
-
+  
   $scope.saveDoc = function(doc) {
     DocService.updateDoc(doc);
     $scope.saveComplete = true;
