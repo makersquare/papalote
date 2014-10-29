@@ -1,6 +1,6 @@
 app.controller('DocNewController', ['$scope','Doc', '$timeout', '$route', 'DocService',
   function($scope, Doc, $timeout, $route, DocService) {
-  $scope.rowNumber = 20;
+  
   $scope.saveComplete = false;
   $scope.titleEditDisable = false;
   $scope.downloadDoc = false;
@@ -9,6 +9,7 @@ app.controller('DocNewController', ['$scope','Doc', '$timeout', '$route', 'DocSe
   $scope.saveDoc = function(doc) {
     DocService.newDocSave(doc);
   };
+
   $scope.newDoc = function () {
     $scope.doc = new Doc();
     DocService.newDoc();
