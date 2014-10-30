@@ -2,46 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body ng-app="mksDriveApp">
-    <nav class="top-bar" data-topbar role="navigation">
-      <ul class="title-area">
-        <li class="name">
-          <h1><a href="#">Whoa! Sick Topbar Dude!</a></h1>
-        </li>
-         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Button</span></a></li>
-      </ul>
-
-      <section class="top-bar-section">
-        <!-- Right Nav Section -->
-        <ul class="right">
-          <li class="active"><a href="#">Right Button Active</a></li>
-          <li class="has-dropdown">
-            <a href="#">Right Button Dropdown</a>
-            <ul class="dropdown">
-              <li><a href="#">First link in dropdown</a></li>
-              <li class="active"><a href="#">Active link in dropdown</a></li>
-            </ul>
-          </li>
-        </ul>
-
-        <!-- Left Nav Section -->
-        <ul class="left">
-          <li><a href="#">Left Nav Button</a></li>
-        </ul>
-      </section>
-    </nav>
-
+  <header id="header" class="fixed">
+    <div class="nav-bar">
+      <div class="logo left">
+        <a href="/">Papalote</a>
+      </div>
+      <div class="top-nav-bar right">
+        <a href="#/test-chat" class="nav-link">
+          <i class="fa fa-comments"></i>
+        </a><a href="#/folders/new" class="nav-link">
+          <i class="fa fa-folder"> +</i>
+        </a><a href="#/docs/new" class="nav-link">
+          <i class="fa fa-file-text-o"> +</i>
+        </a><a href="#" class="nav-link nav-user">
+          <%= image_tag("parag.gif", class: "avatar med online") %>
+          <span class="nav-username">Parag da DON <i class="fa fa-sort-down"></i></span>
+          <ul>
+            <li><i class="fa fa-sign-out"></i> Log Out</li>
+          </ul>
+        </a>
+      </div>
+    </header>
+  <section id="main-section">
     <%= yield %>
-    <%= javascript_include_tag "application" %>
+  </section>
+  <footer>
+    Created by MakerSquare San Francisco
+  </footer>
+  <%= javascript_include_tag "application" %>
   </body>
 </html>

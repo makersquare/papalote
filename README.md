@@ -40,7 +40,7 @@ This section will be in two parts, the first is merely a list of the commands th
 * `git add .`
 	* this adds every single file regardless if it has been changed or not
 * `git commit -m "commit message"`
-* `git rebase HEAD~#` 
+* `git rebase HEAD~#`
 	* `#` <- is a place holder for an integer
 	* this command will allow you to squash commits
 	* say we have a feature branch and have made 20 commits to the feature branch, the feature is completed and ready to merge into development
@@ -77,7 +77,28 @@ I have been tasked with creating a user login system.  Another developer has cre
 	* `git pull --rebase origin development`
 	* `git checkout <feature_branch>`
 	* `git rebase development` (if there are merge conflicts, you will fix it here)
+	* IF you have a merge conflict, do the following:
+	* Fix the files that have the conflicts
+	* `git add <file-name>`
+	* `git rebase --continue`
+	* (repeat the last 3 steps as necessary)
 9. `git checkout development`
 10. `git merge <feature_branch>`
 11. `git push origin development`
 12. You can now delete your feature branch - `git branch -d <feature_branch>`
+
+## Team Members
+
+1. Shehzan Devani
+2. JON rogLOLzen
+3. Parag DaDudeWheresMyCarhaniya Gets Data
+4. Daniel Olasky
+5. Dev Sethi
+6. Jeff Louie
+8. Kim Phamalote
+9. Jon Katz
+10. George Garabedian
+11. Peng Gao
+12. DJ Daniels
+13. Pipe
+14. Stephan Yu

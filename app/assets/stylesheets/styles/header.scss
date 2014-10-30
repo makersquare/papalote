@@ -1,0 +1,48 @@
+#header {
+  background: $dark-grey-hover;
+  height: 80px;
+  .logo {
+    margin: 15px 35px;
+  }
+  .top-nav-bar {
+    .nav-link {
+      text-align: center;
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      line-height: 75px;
+      background: $dark-grey;
+      border-right: 1px solid $dark-grey-hover;
+      &:hover {
+        background: $dark-grey-hover;
+        ul {
+          display: block;
+        }
+      }
+    }
+    .nav-user {
+      width: 220px;
+      height: 80px;
+      .fa {
+        margin: 0 10px; 
+      }
+    }
+    ul {
+      list-style: none;
+      display: none;
+      position: absolute;
+      width: 220px;
+      li {
+        text-align: left;
+        background: $dark-grey;
+        color: $font-light;
+        padding: 15px 5px;
+        transition: background ease-in 0.5s;
+        &:hover {
+          color: $font-xlight;
+          background: $dark-grey-hover;
+        }
+      }
+    }
+  }
+}

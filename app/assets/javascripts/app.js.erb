@@ -6,16 +6,42 @@
 
 
 var app = angular.module('mksDriveApp',
-  ['ngResource', 'ngRoute', 'ngAnimate']);
+  ['ngResource', 'ngRoute', 'ngAnimate', 'flow']);
 
-app.config(['$routeProvider', function($routeProvider){
+app.config(["$routeProvider", function($routeProvider){
 
-  $routeProvider.when('/', {
-    templateUrl: "<%= asset_path('templates/test.html') %>",
-    controller: "TestCtrl"
+  $routeProvider.when("/", {
+    templateUrl: "<%= asset_path('templates/home.html') %>",
+    controller: "HomePageController"
+  })
+  .when('/docs/new', {
+    templateUrl: "<%= asset_path('templates/doc-view.html') %>",
+    controller: "DocNewController"
+  })
+  .when('/docs/:id', {
+    templateUrl: "<%= asset_path('templates/doc-view.html') %>",
+    controller: "DocController"
+  })
+  .when('/test', {
+    templateUrl: "<%= asset_path('templates/test-upload.html.erb') %>"
+  })
+  .when("/folders/new", {
+    templateUrl: "<%= asset_path('templates/new-folder-view.html') %>",
+    controller: "NewFolderController"
+  })
+  .when("/folders/:id", {
+    templateUrl: "<%= asset_path('templates/show-folder-view.html') %>",
+    controller: "ViewFolderController"
+  })
+  .when('/test-chat', {
+    templateUrl: "<%= asset_path('templates/test-chat.html.erb') %>"
+  })
+  .when('/search', {
+    templateUrl: "<%= asset_path('templates/show-search.html') %>",
+    controller: "SearchResultsCtrl"
   })
   .otherwise({
-    redirectTo: '/'
+    redirectTo: "/"
   })
 
 }]);

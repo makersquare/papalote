@@ -13,12 +13,22 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require socket.io
 //= require angular
 //= require angular-resource
 //= require angular-animate
 //= require angular-route
 //= require angular-mocks
 //= require app
-//= require_tree .
+//= require flow
+//= require ng-flow
+//= require websocket_rails/main
+//= require app.js.erb
+//= require ace-editor/ace.js
+//= require_tree ./controllers
+//= require_tree ./directives
+//= require_tree ./services
+//= require_tree ./templates
 
 $(function(){ $(document).foundation(); });
+

@@ -1,0 +1,18 @@
+<div class="slide intro">
+  <h2>Papalote</h2>
+  <p class="tagline">Real time collaborative coding and file sharing platform</p>
+  <div class="login-container">
+    <button>
+      <i class="fa fa-github"></i>
+      Login with Github
+    </button>
+  </div>
+</div>
+<div class="slide start">
+  <h2>Try Papalote without an account</h2>
+  <div ng-init="upload.name = ''" class="create-container">
+    <input class="med" type="text" placeholder="Enter file or folder name" ng-model="upload.name"/>
+    <div class="create file fa fa-file-text-o fa-2x" ng-click="createDoc(upload)"/>
+    <div class="create folder fa fa-folder-o fa-2x" ng-click="createFolder(upload)"/>
+  </div>
+</div>

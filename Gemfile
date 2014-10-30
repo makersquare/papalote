@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+source 'https://rails-assets.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
@@ -7,7 +7,7 @@ gem 'rails_12factor', group: :production
 gem 'rack-timeout'
 
 # Enviroment Config
-# gem 'figaro'
+gem 'figaro'
 
 # Database
 gem 'pg'
@@ -22,12 +22,21 @@ gem 'jquery-rails'
 gem 'foundation-rails'
 gem 'angularjs-rails'
 gem 'foundation-icons-sass-rails'
+gem "font-awesome-rails"
+
+gem 'rails-assets-flow.js'
+gem 'rails-assets-ng-flow'
+
+gem 'socket.io-rails'
 
 # might be necessary to resolve issues with angular and rails
 # gem 'ng-rails-csrf'
 
 gem 'jbuilder', '~> 2.0'
 
+# User Authentication OmniAuth
+gem 'omniauth-github'
+gem 'websocket-rails'
 group :doc do
   gem 'sdoc', require: false
 end
@@ -43,4 +52,5 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'hirb'
   gem 'thin'
+  gem 'dotenv-rails'
 end
