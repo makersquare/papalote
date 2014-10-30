@@ -17,18 +17,16 @@ app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', '
         $scope.backToParentView = true;
       }
     });
-    $scope.user = User.get()
+    $scope.user = User.currentUser;
 
     $scope.updateFolderName = function(folder) {
       Folder.folderResource.update(folder);
     };
     $scope.findDoc = function(doc) {
-      console.log($scope.user.id)
-      console.log(doc.owner_id)
       if ($scope.user.id === doc.owner_id) {
         $location.path("/docs/" + doc.id);
       } else {
-        alert("YOU ARE NOT THE OWNER OF THIS FILE!!!!!!!")
+        alert("YOU ARE NOT THE OWNER OF THIS FILE!")
       }
     };
     $scope.findSubFolder = function(subfolder) {
