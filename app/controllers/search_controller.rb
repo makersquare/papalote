@@ -1,12 +1,9 @@
 class SearchController < ApplicationController
   def index
-    wildcard_keyword = "%#{keywords}%"
-
+    wildcard_keyword = "%#{params[:keywords]}%"
     @folders = Folder.where("name ILIKE :search", search: wildcard_keyword) 
-    @docs = Doc.where(name: params[:keywords])
+    @docs = Doc.where("name ILIKE :search", search: wildcard_keyword) 
   
     render json: {folders: @folders, docs: @docs}
   end
 end
-
-# ILIKE for the name - postgres case insensitive version of LIKE
