@@ -23,9 +23,12 @@
         {{ subfolder.name }}
         </p>
       </div>
-      <input ng-model="name" type='textarea' class="med" placeholder="File Name"/>
+      <input ng-model="name" type='textarea' class="med" placeholder="File/Folder Name"/>
       <button ng-click="newDoc(currentFolder)">
         <i class="fa fa-file-o"></i> Create New File
+      </button>
+      <button ng-click="newFolder(currentFolder)">
+        <i class="fa fa-folder-o"></i> Create New Folder
       </button>
     </div>
   </div>
