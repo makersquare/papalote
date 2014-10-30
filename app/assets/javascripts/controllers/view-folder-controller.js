@@ -26,14 +26,29 @@ app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', '
       if ($scope.user.id === doc.owner_id) {
         $location.path("/docs/" + doc.id);
       } else {
+        // render a error view
         alert("YOU ARE NOT THE OWNER OF THIS FILE!")
       }
     };
     $scope.findSubFolder = function(subfolder) {
-      $location.path('/folders/' + subfolder.id);
+      if ($scope.user.id === subfolder.owner_id) {
+        $location.path('/folders/' + subfolder.id);
+      } else {
+        // render a error view
+        alert("YOU ARE NOT THE OWNER OF THIS FOLDER!")
+      }
     };
     $scope.findParentFolder = function(folder) {
-      $location.path('/folders/' + folder.parentfolder_id);
+      var parent = Folder.folderResource.get({id: folder});
+      parent.$promise.then(function(){
+        $scope.owner = parent.owner_id;
+        if ($scope.user.id === $scope.owner) {
+          $location.path('/folders/' + parent.id);
+        } else {
+          // render a error view
+          alert("BwAHAHAHAH");
+        }
+      })
     };
     $scope.newDoc = function(folder){
       Folder.createDocForFolder({folder_id: folder.id, name: $scope.name});
