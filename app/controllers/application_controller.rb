@@ -25,7 +25,20 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    if session[:user_id]
+      @current_user ||= User.find(session[:user_id])
+    else
+      time = Time.now.to_i.to_s
+      @current_user = {
+        id: time,
+        name: 'Guest' + time,
+        guest: true
+      }
+    end
+  end
+
+  def index
+    {id: current_user.id, name: current_user.name}
   end
 
 end
