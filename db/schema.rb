@@ -11,19 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030153325) do
+ActiveRecord::Schema.define(version: 20141024232306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "chats", force: true do |t|
-    t.integer "user_id"
-    t.integer "doc_id"
-    t.string  "message"
-  end
-
-  add_index "chats", ["doc_id"], name: "index_chats_on_doc_id", using: :btree
-  add_index "chats", ["user_id"], name: "index_chats_on_user_id", using: :btree
 
   create_table "docs", force: true do |t|
     t.string   "name"
