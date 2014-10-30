@@ -12,6 +12,7 @@ class FoldersController < ApplicationController
 
   def create
     @folder = Folder.new(folder_params)
+
     respond_to do |format|
       if @folder.save
         format.html { redirect_to @folder, notice: "Folder was successfully created." }

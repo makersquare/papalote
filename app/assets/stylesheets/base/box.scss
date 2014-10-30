@@ -1,0 +1,117 @@
+div {
+  &.left-of-btn {
+    overflow: hidden;
+  }
+}
+
+button,
+.button {
+  margin-top: 10px;
+  padding: 12px 25px;
+  border-radius: 10px;
+  outline: none;
+  background: $primary;
+  border: 1px solid $primary-dark;
+  border-bottom-color: $primary-darkest; 
+  background: -webkit-linear-gradient($primary, $primary-fade, $primary); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($primary, $primary-fade, $primary); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($primary, $primary-fade, $primary); /* For Firefox 3.6 to 15 */
+  background: linear-gradient($primary, $primary-fade, $primary); /* Standard syntax */
+  box-shadow: 0 1px 3px rgba($dark-shadow, 0.5);
+  &.grey {
+    color: $font-xmed;
+    background: $light-grey;
+    border-color: $light-grey-border;
+    background: -webkit-linear-gradient($light-grey-hover, $light-grey, $light-grey-hover); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient($light-grey-hover, $light-grey, $light-grey-hover); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient($light-grey-hover, $light-grey, $light-grey-hover); /* For Firefox 3.6 to 15 */
+    background: linear-gradient($light-grey-hover, $light-grey, $light-grey-hover); /* Standard syntax */
+    &:hover {
+      color: $font-med;
+    }
+  }
+  &.btn-right {
+    float: right;
+    margin-left: 10px;
+    margin-top: 0;
+  }
+}
+
+#main-section {
+  margin-top: 80px;
+  min-height: 800px;
+}
+
+.content {
+  margin: 20px 0;
+}
+
+.slide {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  &:after {
+    content: " ";
+    display: block;
+    clear: both;
+    visibility: hidden; 
+  }
+}
+
+footer {
+  width: 100%;
+  background: $light-grey;
+  height: 60px;
+  padding: 20px;
+}
+
+input {
+  outline: none;
+  box-shadow: none;
+  color: $font-med;
+  width: 100%;
+  margin: 0 !important;
+  &.input-left {
+    overflow: hidden;
+  }
+  &.margin-bottom {
+    margin-bottom: 15px !important;
+  }
+  &.lg {
+    height: 75px;
+    font-size: 50px;
+    padding: 0;
+  }
+  &.med {
+    height: 45px;
+    font-size: 18px;
+    padding: 0 15px;
+  }
+  &.sm {
+    height: 25px;
+    font-size: 14px;
+    padding: 0 10px;
+  }
+  &.no-border {
+    border: 0;
+    box-shadow: none;
+    margin-bottom: 15px !important;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  &::-webkit-input-placeholder { /* WebKit browsers */
+    color: $font-med;
+  }
+  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: $font-med;
+    opacity: 1;
+  }
+  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: $font-med;
+    opacity: 1;
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: $font-med;
+  }
+}

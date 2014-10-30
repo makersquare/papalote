@@ -1,0 +1,11 @@
+#chat {
+  .chat-messages {
+    border: 1px solid $light-grey-border;
+    min-height: 400px;
+    margin: 20px 0;
+    padding: 10px;
+    ul {
+      list-style: none;
+    }
+  }
+}
