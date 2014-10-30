@@ -1,6 +1,5 @@
 // This directive is used for doc-view.html
-//
-app.directive('docDirective', ['Doc', '$route', function(Doc, $route) {
+app.directive('docDirective', ['Doc', '$route', '$timeout', function(Doc, $route, $timeout) {
   return {
     templateUrl: "<%= asset_path('assets/templates/doc-textarea.html') %>",
     scope: false,
@@ -47,11 +46,10 @@ app.directive('docDirective', ['Doc', '$route', function(Doc, $route) {
         });
       } else {
         scope.doc = new Doc();
-        scope.doc.content = "";
-        scope.doc.$save(function(data) {
+        $timeout(function() {
           loadFile();
           editor.setValue("");
-        });
+        },100);
       }
 
       // on navigation to another document, close the WebSocket channel
