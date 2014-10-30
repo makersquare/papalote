@@ -3,7 +3,6 @@ app.factory('SearchFactory', ['$http', function($http){
   return {
     find: function (keywords) {
       return $http.get(urlBase + '/' + keywords);
-      //$http.get(urlBase + '/?query' + keywords);  
     }
   }
 }]);
