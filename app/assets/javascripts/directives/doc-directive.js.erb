@@ -46,14 +46,13 @@ app.directive('docDirective', ['Doc', '$route', '$timeout', function(Doc, $route
         });
       } else {
         scope.doc = new Doc();
-        $timeout(function() {
-          loadFile();
-          editor.setValue("");
-        },100);
+        loadFile();
+        editor.setValue("");
       }
 
       // on navigation to another document, close the WebSocket channel
       scope.$on('$routeChangeStart', function(a, b) {
+        document.getElementById("editor").remove();
         dispatcher.trigger("client_disconnected",$route.current.params.id);
       });
 
