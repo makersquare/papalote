@@ -32,7 +32,7 @@ app.factory('ChatService', ['Socket', 'User', function(Socket, User) {
         messages.push({
           user: User.currentUser.name,
           message: 'Failed to connect to the chat server...'
-        }); 
+        });
       });
     },
     messages: messages
