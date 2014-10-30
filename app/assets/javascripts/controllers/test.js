@@ -1,4 +1,4 @@
-app.controller('TestCtrl', ['$scope', 'AppRsc', function($scope, AppRsc){
+app.controller('TestCtrl', ['$scope', 'AppRsc', 'User', function($scope, AppRsc, User){
 
   AppRsc.shout();
   AppRsc.shoutTwo();
@@ -8,5 +8,6 @@ app.controller('TestCtrl', ['$scope', 'AppRsc', function($scope, AppRsc){
     error: AppRsc.error
   };
 
+  $scope.current = User.currentUser;
 
 }]);
