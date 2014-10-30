@@ -36,6 +36,10 @@ app.config(["$routeProvider", function($routeProvider){
   .when('/test-chat', {
     templateUrl: "<%= asset_path('templates/test-chat.html.erb') %>"
   })
+  .when('/user-permission-denied', {
+    templateUrl: "<%= asset_path('templates/permission-denied-view.html') %>",
+    controller: "UserDeniedController"
+  })
   .otherwise({
     redirectTo: "/"
   })

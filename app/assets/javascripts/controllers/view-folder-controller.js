@@ -27,7 +27,8 @@ app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', '
         $location.path("/docs/" + doc.id);
       } else {
         // render a error view
-        alert("YOU ARE NOT THE OWNER OF THIS FILE!")
+        $location.path("/user-permission-denied");
+        // alert("YOU ARE NOT THE OWNER OF THIS FILE!")
       }
     };
     $scope.findSubFolder = function(subfolder) {
