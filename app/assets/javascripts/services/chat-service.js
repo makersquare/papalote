@@ -12,30 +12,27 @@
 
 app.factory('ChatService', ['Socket', 'User', function(Socket, User) {
   var messages = [];
+  var guest = 'Guest';
   var emitEventName = "chat message";
   var receiveEventName = "receive message";
 
   return {
     sendMessage: function(message) {
-      User.get(function(data){
-        message.user = data.name
-        Socket.emit(
-          emitEventName,
-          message
-        );
-      });
+      message.user = User.currentUser.name || guest
+      Socket.emit(
+        emitEventName,
+        message
+      );
     },
     setSocketListener: function() {
       Socket.on(receiveEventName, function(message) {
         messages.push(message);
       });
       Socket.on('connect_error', function(){
-        User.get(function(data){
-          messages.push({
-            user: data.name,
-            message: 'Failed to connect to the chat server...'
-          }); 
-        })
+        messages.push({
+          user: User.currentUser.name,
+          message: 'Failed to connect to the chat server...'
+        }); 
       });
     },
     messages: messages
