@@ -26,17 +26,14 @@ app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', '
       if ($scope.user.id === doc.owner_id) {
         $location.path("/docs/" + doc.id);
       } else {
-        // render a error view
         $location.path("/user-permission-denied");
-        // alert("YOU ARE NOT THE OWNER OF THIS FILE!")
       }
     };
     $scope.findSubFolder = function(subfolder) {
       if ($scope.user.id === subfolder.owner_id) {
         $location.path('/folders/' + subfolder.id);
       } else {
-        // render a error view
-        alert("YOU ARE NOT THE OWNER OF THIS FOLDER!")
+        $location.path("/user-permission-denied")
       }
     };
     $scope.findParentFolder = function(folder) {
@@ -46,8 +43,7 @@ app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', '
         if ($scope.user.id === $scope.owner) {
           $location.path('/folders/' + parent.id);
         } else {
-          // render a error view
-          alert("BwAHAHAHAH");
+          $location.path("/user-permission-denied");
         }
       })
     };
