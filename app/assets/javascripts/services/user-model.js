@@ -6,6 +6,6 @@ app.factory('User', ['$resource',
     });
 
     return {
-      currentUser: currentUser
+      currentUser: currentUser.$promise
     }
 }]);

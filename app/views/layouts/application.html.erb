@@ -16,23 +16,32 @@
       <div class="logo left">
         <a href="/">Papalote</a>
       </div>
-      <div class="top-nav-bar right">
+      <div class="top-nav-bar right" ng-controller="NavBarController">
         <a href="#/test-chat" class="nav-link">
-          <i class="fa fa-comments"></i>
-        </a><a href="#/folders/new" class="nav-link">
-          <i class="fa fa-folder"> +</i>
-        </a><a href="#/docs/new" class="nav-link">
-          <i class="fa fa-file-text-o"> +</i>
-        </a><a href="#" class="nav-link nav-user">
-          <%= image_tag("parag.gif", class: "avatar med online") %>
-          <span class="nav-username">Parag da DON <i class="fa fa-sort-down"></i></span>
+          <i class="fa fa-comments"></i></a>
+        <a href="#/folders/new" class="nav-link">
+          <i class="fa fa-folder"> +</i></a>
+        <a href="#/docs/new" class="nav-link">
+          <i class="fa fa-file-text-o"> +</i></a>
+        <div class="nav-link nav-user">
+          <span class="nav-username">{{user.name}}<i class="fa fa-sort-down"></i></span>
           <ul>
-            <li><i class="fa fa-sign-out"></i> Log Out</li>
+            <a href="/logout"><li ng-hide="guest"><i class="fa fa-sign-out"></i> Log Out</li></a>
+            <a href="/login"><li ng-show="guest"><i class="fa fa-sign-in"></i> Log In</li></a>
           </ul>
-        </a>
+        </div>
       </div>
     </header>
   <section id="main-section">
+  <div class="slide intro">
+    <div class='row'>
+      <div class="small-12 columns">
+        <% if flash[:notice] %>
+          <div class="notice"><%= flash[:notice] %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
     <%= yield %>
   </section>
   <footer>
