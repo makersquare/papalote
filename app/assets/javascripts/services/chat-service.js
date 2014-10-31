@@ -17,7 +17,7 @@ app.factory('ChatService', ['Socket', 'User', function(Socket, User) {
 
   return {
     sendMessage: function(message) {
-      message.user = User.currentUser.name;
+      message.user = User.user;
       Socket.emit(
         emitEventName,
         message
@@ -29,7 +29,7 @@ app.factory('ChatService', ['Socket', 'User', function(Socket, User) {
       });
       Socket.on('connect_error', function(){
         messages.push({
-          user: User.currentUser.name,
+          user: User.user,
           message: 'Failed to connect to the chat server...'
         });
       });
