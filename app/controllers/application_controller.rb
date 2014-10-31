@@ -24,8 +24,4 @@ class ApplicationController < ActionController::Base
     !current_user.nil?
   end
 
-  def index
-    {id: current_user.id, name: current_user.name}
-  end
-
 end
