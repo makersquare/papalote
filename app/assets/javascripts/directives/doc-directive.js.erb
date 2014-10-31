@@ -38,14 +38,19 @@ app.directive('docDirective', ['Doc', '$route', '$timeout',
         var setMode = function(data) {
           if (data.name.slice(data.name.indexOf('.')+1) === 'js') {
             editor.getSession().setMode("ace/mode/javascript");
+            document.getElementById('mode').value = 'javascript';
           } else if (data.name.slice(data.name.indexOf('.')+1) === 'rb') {
             editor.getSession().setMode("ace/mode/ruby");
+            document.getElementById('mode').value = 'ruby';
           } else if (data.name.slice(data.name.indexOf('.')+1) === 'java') {
             editor.getSession().setMode("ace/mode/java");
+            document.getElementById('mode').value = 'java';
           } else if (data.name.slice(data.name.indexOf('.')+1) === 'html') {
             editor.getSession().setMode("ace/mode/html");
+            document.getElementById('mode').value = 'html';
           } else if (data.name.slice(data.name.indexOf('.')+1) === 'css') {
             editor.getSession().setMode("ace/mode/css");
+            document.getElementById('mode').value = 'css';
           }
         };
 
