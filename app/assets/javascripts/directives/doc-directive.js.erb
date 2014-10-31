@@ -22,8 +22,11 @@ app.directive('docDirective', ['Doc', '$route', '$timeout',
         // creates editor view based upon passed in mode (e.g. ruby, javascript, etc.)
         var loadFile = function(data) {
           editor = ace.edit("editor");
-          document.getElementById('theme').value = 'twilight';
-          editor.setTheme("ace/theme/twilight");
+          // Set Default Theme
+          scope.theme = "tomorrow_night";
+          // Set Choose Language Text
+          scope.mode = "plain_text";
+          editor.setTheme("ace/theme/tomorrow_night");
           editor.getSession().setTabSize(2);
           if (data !== undefined) {
             editor.setValue(data.content);
