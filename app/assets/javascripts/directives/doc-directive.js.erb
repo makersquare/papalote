@@ -1,69 +1,88 @@
 // This directive is used for doc-view.html
-app.directive('docDirective', ['Doc', '$route', '$timeout', function(Doc, $route, $timeout) {
-  return {
-    templateUrl: "<%= asset_path('assets/templates/doc-textarea.html') %>",
-    scope: false,
-    // link contains all the functions that manipulate the DOM
-    link: function(scope, element, attrs) {
-      var dispatcher = new WebSocketRails(window.location.host+'/websocket');
-      var channel = dispatcher.subscribe($route.current.params.id);
-      element.bind("keyup", function(event) {
-        scope.doc.content = editor.getValue();
-        channel.trigger('change_doc',scope.doc);
-      });
+app.directive('docDirective', ['Doc', '$route', '$timeout',
+  function(Doc, $route, $timeout) {
 
-      // Theme selector (theme files found in 'src-min/')
-      scope.changeTheme = function() {
-        editor.setTheme("ace/theme/" + scope.theme);
-      };
-
-      // creates editor view based upon passed in mode (e.g. ruby, javascript, etc.)
-      var loadFile = function(data) {
-        editor = ace.edit("editor");
-        editor.setTheme("ace/theme/twilight");
-        editor.getSession().setTabSize(2);
-        if (data !== undefined) {
-          setMode(data);
-        }
-      };
-
-      // sets programming language based on file extension
-      var setMode = function(data) {
-        if (data.name.slice(data.name.indexOf('.')+1) === 'js') {
-          editor.getSession().setMode("ace/mode/javascript");
-        } else if (data.name.slice(data.name.indexOf('.')+1) === 'rb') {
-          editor.getSession().setMode("ace/mode/ruby");
-        }
-      };
-
-      // if existing doc: pulls contents from database and pushes into editor
-      // if new doc: make palceholder get request to get callback and load blank editor
-      if ($route.current.params.id) {
-        scope.doc = Doc.get({id: $route.current.params.id}, function(data) {
-          loadFile(data);
-          editor.setValue(data.content);
-          editor.clearSelection();
+    return {
+      templateUrl: "<%= asset_path('assets/templates/doc-textarea.html') %>",
+      scope: false,
+      // link contains all the functions that manipulate the DOM
+      link: function(scope, element, attrs) {
+        var dispatcher = new WebSocketRails(window.location.host+'/websocket');
+        var channel = dispatcher.subscribe($route.current.params.id);
+        element.bind("keyup", function(event) {
+          scope.doc.content = editor.getValue();
+          channel.trigger('change_doc',scope.doc);
         });
-      } else {
-        scope.doc = new Doc();
-        loadFile();
-        editor.setValue("");
+
+        // Theme selector (theme files found in 'ace-editor/')
+        scope.changeTheme = function() {
+          editor.setTheme("ace/theme/" + scope.theme);
+        };
+
+        // creates editor view based upon passed in mode (e.g. ruby, javascript, etc.)
+        var loadFile = function(data) {
+          editor = ace.edit("editor");
+          document.getElementById('theme').value = 'twilight';
+          editor.setTheme("ace/theme/twilight");
+          editor.getSession().setTabSize(2);
+          if (data !== undefined) {
+            editor.setValue(data.content);
+            editor.clearSelection();
+            setMode(data);
+          } else {
+            editor.setValue("");
+          }
+        };
+
+        // sets programming language based on file extension
+        var setMode = function(data) {
+          if (data.name.slice(data.name.indexOf('.')+1) === 'js') {
+            editor.getSession().setMode("ace/mode/javascript");
+            document.getElementById('mode').value = 'javascript';
+          } else if (data.name.slice(data.name.indexOf('.')+1) === 'rb') {
+            editor.getSession().setMode("ace/mode/ruby");
+            document.getElementById('mode').value = 'ruby';
+          } else if (data.name.slice(data.name.indexOf('.')+1) === 'java') {
+            editor.getSession().setMode("ace/mode/java");
+            document.getElementById('mode').value = 'java';
+          } else if (data.name.slice(data.name.indexOf('.')+1) === 'html') {
+            editor.getSession().setMode("ace/mode/html");
+            document.getElementById('mode').value = 'html';
+          } else if (data.name.slice(data.name.indexOf('.')+1) === 'css') {
+            editor.getSession().setMode("ace/mode/css");
+            document.getElementById('mode').value = 'css';
+          }
+        };
+
+        // if existing doc: pulls contents from database and pushes into editor
+        // if new doc: make palceholder get request to get callback and load blank editor
+        if ($route.current.params.id) {
+          scope.doc = Doc.get({id: $route.current.params.id}, function(data) {
+            loadFile(data);
+          });
+        } else {
+          scope.doc = new Doc();
+          loadFile();
+        }
+
+        // on navigation to another document, close the WebSocket channel
+        scope.$on('$routeChangeStart', function(a, b) {
+          document.getElementById("editor").remove();
+          dispatcher.trigger("client_disconnected",$route.current.params.id);
+        });
+
+        // sets WebSocket listener to view changes made by another user on same document
+        channel.bind('change_doc',function(data) {
+          var cursor = editor.getCursorPosition();
+          editor.getSession().setValue(data.content);
+          editor.selection.moveCursorTo(cursor.row, cursor.column);
+          // editor.clearSelection();
+          scope.doc.content = data.content;
+        });
+
+        scope.changeMode = function() {
+          editor.getSession().setMode("ace/mode/" + scope.mode);
+        };
       }
-
-      // on navigation to another document, close the WebSocket channel
-      scope.$on('$routeChangeStart', function(a, b) {
-        document.getElementById("editor").remove();
-        dispatcher.trigger("client_disconnected",$route.current.params.id);
-      });
-
-      // sets WebSocket listener to view changes made by another user on same document
-      channel.bind('change_doc',function(data) {
-        var cursor = editor.getCursorPosition();
-        editor.session.doc.setValue(data.content);
-        editor.selection.moveCursorTo(cursor.row, cursor.column);
-        editor.clearSelection();
-        scope.doc.content = data.content;
-      });
-    }
-  };
+    };
 }]);
