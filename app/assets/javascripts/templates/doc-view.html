@@ -1,5 +1,11 @@
 <div class="row">
   <div class="content doc-view small-12 columns">
+    <div ng-show='backToParentView'>
+      <button ng-click="findParentFolder()" class="grey">
+      <i class="fa fa-angle-double-left"></i>
+      Back To Parent Folder
+      </button>
+    </div>
     <p ng-show="saveComplete">Saving..</p>
     <a ng-href="{{file_name}}" ng-show="downloadDoc" download>
       <button type="button">Download</button> 
@@ -8,7 +14,4 @@
     <div class="editor" doc-directive></div>
     <button ng-click="saveDoc(doc)" class="grey">Save</button>
   </div>
-</div>
-<div ng-show='backToParentView'>
-  <button ng-click="findParentFolder()">Back To Folder</button>
 </div>
