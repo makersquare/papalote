@@ -8,6 +8,4 @@ app.controller('TestCtrl', ['$scope', 'AppRsc', 'User', function($scope, AppRsc,
     error: AppRsc.error
   };
 
-  $scope.current = User.currentUser;
-
 }]);

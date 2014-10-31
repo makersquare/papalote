@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def is_logged_in?
-    !current_user.nil
+    !current_user.nil?
   end
 
   def index
