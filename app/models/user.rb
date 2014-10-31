@@ -17,6 +17,5 @@ class User < ActiveRecord::Base
     else
       current_user = User.create(name: "Guest #{Time.now.to_i}", guest: true)
     end
-    return current_user
   end
 end
