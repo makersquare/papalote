@@ -64,6 +64,10 @@ app.directive('docDirective', ['Doc', '$route', '$timeout', function(Doc, $route
         editor.clearSelection();
         scope.doc.content = data.content;
       });
+
+      scope.changeMode = function() {
+        editor.getSession().setMode("ace/mode/" + scope.mode);
+      };
     }
   };
 }]);
