@@ -5,7 +5,14 @@ app.factory('User', ['$resource',
     var currentUser = userRsc.get(function(data){
     });
 
+    var userDocs = $resource(
+      '/users/:owner_id/contents',
+      {owner_id: '@owner_id'},
+      {update: {method: "PATCH"}}
+    );
+
     return {
-      currentUser: currentUser
-    }
+      currentUser: currentUser,
+      userDocs: userDocs
+    };
 }]);

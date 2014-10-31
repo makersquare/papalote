@@ -1,6 +1,13 @@
 <div class="user-view">
   <p>{{user.name}}'s profile</p>
 </div>
-<div ng-repeat="folder in userFolders">
-  {{folder.name}}
+<!-- <div ng-repeat="item in userStuff"> -->
+  <h2>Files</h2>
+<div ng-repeat="file in userFiles">
+  <p>{{file.name}}</p>
 </div>
+  <h2>Folders</h2>
+<div ng-repeat="folder in userFolders">
+  <p>{{folder.name}}</p>
+</div>
+<!-- </div> -->
