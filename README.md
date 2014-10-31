@@ -1,5 +1,7 @@
 ## SF-Cohort 2 Final Project
 
+## Build Status
+[ ![Codeship Status for makersquare/papalote](https://www.codeship.io/projects/b53e2560-4118-0132-e238-5e14300eaef6/status?branch=dev)](https://www.codeship.io/projects/44095)
 ## Getting Started
 
 1. run `bundle install`
