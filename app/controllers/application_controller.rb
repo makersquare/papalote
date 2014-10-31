@@ -21,22 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def is_logged_in?
-    !current_user.guest
-  end
-
-  def current_user
-    if session[:user_id]
-      @current_user ||= User.find(session[:user_id])
-    elsif session[:guest_time]
-      @guest_user
-    else
-      session[:guest_time] = Time.now.to_i.to_s
-      @guest_user = {
-        id: time,
-        name: 'Guest' + session[:guest_time],
-        guest: true
-      }
-    end
+    !current_user.nil
   end
 
   def index

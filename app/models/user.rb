@@ -9,4 +9,13 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def self.retrieve_user(user_id)
+    if user_id
+      current_user ||= User.find(user_id)
+    else
+      current_user = User.create(name: "Guest #{Time.now.to_i}", guest: true)
+    end
+    return current_user
+  end
 end
