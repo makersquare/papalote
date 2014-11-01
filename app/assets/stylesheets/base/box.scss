@@ -58,13 +58,6 @@ button,
   }
 }
 
-footer {
-  width: 100%;
-  background: $light-grey;
-  height: 60px;
-  padding: 20px;
-}
-
 input {
   outline: none;
   box-shadow: none;
@@ -114,4 +107,8 @@ input {
   &:-ms-input-placeholder { /* Internet Explorer 10+ */
     color: $font-med;
   }
+}
+
+.clickable {
+  cursor: pointer; cursor: hand;
 }

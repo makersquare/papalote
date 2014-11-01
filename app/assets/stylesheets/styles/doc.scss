@@ -2,3 +2,23 @@
   width: 100%;
   height: 400px;
 }
+
+.folder-content {
+  margin: 20px 0;
+}
+
+.folder-content {
+  margin-bottom: 20px;
+  h4 {
+    margin-bottom: 10px;
+  }
+  .fa {
+    color: $light-grey-border;
+    font-size: 20px;
+    margin: 5px;
+  }
+  p:hover,
+  p:hover .fa {
+    color: $primary-dark;
+  }
+}
