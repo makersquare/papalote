@@ -1,5 +1,5 @@
-app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', 'Folder',
-  function($scope, $routeParams, $location, Folder) {
+app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', 'Folder', 'Doc',
+  function($scope, $routeParams, $location, Folder, Doc) {
     $scope.folder = Folder.folderResource.get({id: $routeParams["id"]});
     $scope.folder.$promise.then(function(data){
       $scope.parentFolder = data.parentfolder_id;
@@ -14,7 +14,6 @@ app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', '
       $scope.empty = (!$scope.subfolders.length && !$scope.docs.length);
       $scope.backToParentView = !!$scope.parentFolder;
     });
-
     $scope.updateFolderName = function(folder) {
       Folder.folderResource.update(folder);
     };
@@ -35,5 +34,17 @@ app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', '
     };
     $scope.newDocOrFolder = function(input) {
       Folder.createDocOrFolder(input);
+    };
+    $scope.deleteDoc = function(doc){
+      document.getElementById(doc.id).remove();
+      Doc.delete(doc, function(data) {
+        $location.path('/folders/' + $scope.folder.id);
+      });
+    };
+    $scope.deleteFolder = function(folder){
+      document.getElementById(folder.id).remove();
+      Folder.deleteFolder(folder, function(data) {
+        $location.path('/folders/' + $scope.folder.id);
+      });
     };
   }]);

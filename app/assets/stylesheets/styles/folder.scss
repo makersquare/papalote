@@ -1,0 +1,13 @@
+.delete-btn {
+  float: right;
+  color: black;
+}
+
+.file-show {
+  display: inline;
+}
+
+.file-show:hover,
+.file-show:hover i {
+  color: $primary-dark;
+};
