@@ -89,6 +89,19 @@ I have been tasked with creating a user login system.  Another developer has cre
 11. `git push origin development`
 12. You can now delete your feature branch - `git branch -d <feature_branch>`
 
+## Environments
+Rails provides us the ability to use different environments. The most commonly used ones are *'development', 'testing'* and *'production'*. Code being run on our local computers, by default, is run as a **development** environment. Code pushed to heroku, are automatically deployed as a *production* environment. 
+
+At a glance, it might not be clear why that would cause a problem. But there are a lot of things that can (and do) differ between these 2 environments. For instance, You don't run your database in the same server as your application. That is why `database.myl` gives you the ability to configure these seperately.
+
+In order for us to make sure the changes we just made won't *break* production we need to run our local environment as if it were production. To do this run your server using these commands:
+
+
+> RAILS_ENV=production rake assets:precompile
+> bundle exec rails server -e production
+
+NOTE: Another change you have to make is copy **secret_kay_base** from `secrets.yml` into *application.yml*  **and put it in ALL CAPS** (SECRET_KEY_BASE)
+
 ## Team Members
 
 1. Shehzan Devani

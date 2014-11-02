@@ -3,7 +3,7 @@ app.directive('docDirective', ['Doc', '$route', '$timeout',
   function(Doc, $route, $timeout) {
 
     return {
-      templateUrl: "<%= asset_path('assets/templates/doc-textarea.html') %>",
+      templateUrl: "<%= asset_path('templates/doc-textarea.html') %>",
       scope: false,
       // link contains all the functions that manipulate the DOM
       link: function(scope, element, attrs) {
