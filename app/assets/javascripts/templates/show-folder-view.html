@@ -29,11 +29,13 @@
           </p>
         </div>
       </div>
-      <input ng-model="name" type='textarea' class="med" placeholder="File/Folder Name"/>
-      <button ng-click="newDoc(currentFolder)">
+      <form ng-submit="newDocOrFolder(input)">
+        <input ng-model="input.name" type='textarea' class="med" placeholder="File/Folder Name"/>
+      </form>
+      <button ng-click="newDoc(input)">
         <i class="fa fa-file-o"></i> Create New File
       </button>
-      <button ng-click="newFolder(currentFolder)">
+      <button ng-click="newFolder(input)">
         <i class="fa fa-folder-o"></i> Create New Folder
       </button>
     </div>
