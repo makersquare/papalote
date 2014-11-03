@@ -1,7 +1,8 @@
 class DocsController < ApplicationController
   require 'tempfile'
 
-  before_action :set_doc, only: [:show, :update, :destroy, :download]
+  before_action :set_doc, only: [:show, :update, :destroy, :createDocFile, :deleteDocFile]
+  before_action :set_path, only: [:createDocFile, :deleteDocFile]
 
   def show
     render json: @doc
@@ -48,20 +49,17 @@ class DocsController < ApplicationController
     end
   end
 
-  def download
-    path = ::Rails.application.config.download_path
-    if !Dir.exists?(path)
-      Dir.mkdir(path)
+  def createDocFile
+    if !Dir.exists?(@path)
+      Dir.mkdir(@path)
     end
 
-    # clean up any files older than one day
-    Dir.entries(path).each do |file|
-      if (Time.now - File.ctime(path + file)) > (60*60*24) && file.length > 2
-        File.delete(path + file)
-      end
-    end
+    File.open(@path + @doc.name, 'w') { |f| f.write(@doc.content) }
+    render json: @doc
+  end
 
-    File.open(path + @doc.name, 'w') { |f| f.write(@doc.content) }
+  def deleteDocFile
+    File.delete(@path + @doc.name)
     render json: @doc
   end
 
@@ -69,6 +67,10 @@ class DocsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_doc
       @doc = Doc.find(params[:id])
+    end
+
+    def set_path
+      @path = ::Rails.application.config.download_path
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

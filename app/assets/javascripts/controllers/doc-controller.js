@@ -1,6 +1,6 @@
-app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocService', 'Download', '$location',
-  function($scope, Doc, $timeout, $route, DocService, Download, $location) {
-
+app.controller('DocController', ['$scope','Doc', '$timeout', '$route',
+  'DocService', '$location', function($scope, Doc,
+    $timeout, $route, DocService, $location) {
   $scope.id = $route.current.params.id;
   $scope.doc = Doc.get({id: $route.current.params.id});
   $scope.doc.$promise.then(function(data){
@@ -27,17 +27,14 @@ app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocServic
     DocService.newDoc();
   };
 
-  $scope.createDownloadFile = function() {
-    Download.get({id: $scope.id}, function(data){
-      $scope.file_name = './downloads/' + data.name;
-    });
+  $scope.createTempFile = function(doc) {
+    DocService.updateDoc(doc);
+    DocService.createTempFile(doc.id);
   };
 
   $scope.editName = function() {
     $scope.titleEditDisable = false;
   };
-
-  $scope.createDownloadFile();
 
   $scope.findParentFolder = function(){
     $location.path('/folders/' + currentFolderId);
