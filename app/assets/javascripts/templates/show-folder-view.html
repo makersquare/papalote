@@ -13,6 +13,9 @@
       </div>
       <div class="folder-content">
       <h4>Folder Contents:</h4>
+        <div ng-show='empty'>
+          <p><em>This folder is currently empty.</em></p>
+        </div>
         <div ng-repeat="doc in docs">
           <p ng-click="findDoc(doc)" class="clickable">
             <i class="fa fa-file fa-2x"></i>
