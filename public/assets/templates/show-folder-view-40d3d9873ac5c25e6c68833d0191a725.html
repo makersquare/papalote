@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="content small-12 columns">
+    <div class="show-folder">
+      <div ng-show="backToParentView">
+        <button ng-click="findParentFolder(currentFolder)" class="grey">
+        <i class="fa fa-angle-double-left"></i> 
+        Back to Parent Folder
+        </button>
+      </div>
+      <button class="edit grey btn-right" ng-click="updateFolderName(currentFolder)">Update Folder Name</button>
+      <div class="left-of-btn">
+        <input type="textarea" ng-model="currentFolder.name" class="med">
+      </div>
+      <div class="folder-content">
+      <h4>Folder Contents:</h4>
+        <div ng-show='empty'>
+          <p><em>This folder is currently empty.</em></p>
+        </div>
+        <div ng-repeat="doc in docs">
+          <p ng-click="findDoc(doc)" class="clickable">
+            <i class="fa fa-file fa-2x"></i>
+            {{ doc.name }}
+          </p>
+        </div>
+        <div ng-repeat="subfolder in subfolders">
+          <p ng-click="findSubFolder(subfolder)" class="clickable">
+          <i class="fa fa-folder fa-2x"></i>
+          {{ subfolder.name }}
+          </p>
+        </div>
+      </div>
+      <input ng-model="name" type='textarea' class="med" placeholder="File/Folder Name"/>
+      <button ng-click="newDoc(currentFolder)">
+        <i class="fa fa-file-o"></i> Create New File
+      </button>
+      <button ng-click="newFolder(currentFolder)">
+        <i class="fa fa-folder-o"></i> Create New Folder
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="content small-12 columns">
+    <div ng-controller="ChatController" id="chat">
+      <div class="chat-messages">
+        <ul class="message-list">
+          <li ng-repeat="m in messages">
+            <strong>{{m.user}}:</strong> <span ng-bind-html="m.message | emoji"></span>
+          </li>
+        </ul>
+      </div>
+      <form ng-submit="sendMessage(message)">
+        <button class="btn-right">Send</button>
+      <div class="left-of-btn">
+        <input ng-model="message.message" autocomplete="off" placeholder="Begin chatting..." class="med left-of-btn"/>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,12 @@
 // This directive is used for doc-view.html
+ace.config.set("workerPath", "/perm_assets/javascripts");
+ace.config.set("modePath", "/perm_assets/javascripts");
+ace.config.set("themePath", "/perm_assets/javascripts");
 app.directive('docDirective', ['Doc', '$route', '$timeout',
   function(Doc, $route, $timeout) {
 
     return {
-      templateUrl: "<%= asset_path('assets/templates/doc-textarea.html') %>",
+      templateUrl: "<%= asset_path('templates/doc-textarea.html') %>",
       scope: false,
       // link contains all the functions that manipulate the DOM
       link: function(scope, element, attrs) {
