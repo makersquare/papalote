@@ -3,4 +3,5 @@ class Folder < ActiveRecord::Base
   has_many :docs
   has_many :subfolders, class_name: "Folder", foreign_key: 'parentfolder_id'
   belongs_to :parentfolder, class_name: "Folder"
+  belongs_to :owner, class_name: "User"
 end

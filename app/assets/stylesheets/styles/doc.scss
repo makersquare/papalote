@@ -22,3 +22,9 @@
     color: $primary-dark;
   }
 }
+
+.folder-list, .doc-list {
+  p:hover, p:hover .fa {
+    color: $primary-dark;
+  }
+}

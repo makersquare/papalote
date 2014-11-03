@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="content small-12 columns">
+    <div class="user-view">
+      <h4>{{user.name}}'s profile</h4>
+    </div>
+      <p>Files</p>
+    <div class="doc-list" ng-repeat="file in userFiles">
+      <p ng-click="findFile(file)" class="clickable">
+      <i class="fa fa-file"></i>
+      {{file.name}}</p>
+    </div>
+      <p>Folders</p>
+    <div class="folder-list" ng-repeat="folder in userFolders">
+      <p ng-click="findFolder(folder)" class="clickable">
+      <i class="fa fa-folder"></i>
+      {{folder.name}}</p>
+    </div>
+  </div>
+</div>

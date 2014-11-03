@@ -5,9 +5,9 @@ app.controller('HomePageController', ['$scope', 'Folder', 'User',
       $scope.guest = data.guest;
     });
     $scope.createDoc = function(upload){
-      Folder.createDocForFolder({doc: {folder:null, name: upload.name}});
+      Folder.createDocForFolder({doc: {folder:null, name: upload.name, owner_id: $scope.user.id}});
     };
     $scope.createFolder = function(upload){
-      Folder.createFolder({folder: {name: upload.name}});
+      Folder.createFolder({folder: {name: upload.name, owner_id: $scope.user.id}})
     };
 }]);

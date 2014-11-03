@@ -43,6 +43,7 @@ class FoldersController < ApplicationController
   end
 
   def contents
+    @folder = Folder.find(params[:folder_id])
     @docs = Doc.where(folder_id: params[:folder_id])
     @subfolders = Folder.where(parentfolder_id: params[:folder_id])
     response = {:docs => @docs, :folders => @subfolders}
@@ -52,7 +53,7 @@ class FoldersController < ApplicationController
   private
 
   def folder_params
-    params.require(:folder).permit(:name, :parentfolder_id)
+    params.require(:folder).permit(:name, :parentfolder_id, :owner_id)
   end
 
 end
