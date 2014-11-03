@@ -27,17 +27,15 @@ app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocServic
     DocService.newDoc();
   };
 
-  $scope.createDownloadFile = function() {
-    Download.get({id: $scope.id}, function(data){
-      $scope.file_name = './downloads/' + data.name;
+  $scope.downloadFile = function(doc) {
+    DocService.updateDoc(doc);
+    Download.get({id: $scope.id}, function(){
     });
   };
 
   $scope.editName = function() {
     $scope.titleEditDisable = false;
   };
-
-  $scope.createDownloadFile();
 
   $scope.findParentFolder = function(){
     $location.path('/folders/' + currentFolderId);

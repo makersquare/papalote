@@ -1,8 +1,8 @@
 <div class="row">
   <div class="content doc-view small-12 columns">
     <p ng-show="saveComplete">Saving..</p>
-    <a ng-href="{{file_name}}" ng-show="downloadDoc" download>
-      <button type="button">Download</button> 
+    <a href='./downloads/{{doc.name}}' download>
+      <button type="button" ng-click="downloadFile(doc)">Download</button>
     </a>
     <input ng-disabled="titleEditDisable" onblur="this.placeholder = 'Document Name'" type="text" ng-model="doc.name" value='{{doc.name}}' placeholder="Document Name" class="lg no-border">
     <div class="editor" doc-directive></div>
