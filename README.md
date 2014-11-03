@@ -97,8 +97,10 @@ At a glance, it might not be clear why that would cause a problem. But there are
 In order for us to make sure the changes we just made won't *break* production we need to run our local environment as if it were production. To do this run your server using these commands:
 
 
+```
 > RAILS_ENV=production rake assets:precompile
 > bundle exec rails server -e production
+```
 
 NOTE: Another change you have to make is copy **secret_kay_base** from `secrets.yml` into *application.yml*  **and put it in ALL CAPS** (SECRET_KEY_BASE)
 
