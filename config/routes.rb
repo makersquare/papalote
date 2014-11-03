@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  
+
   get '/search/:keywords', to: 'search#index'
 
   get '/login', to: 'sessions#new'
-  
+
   get '/auth/:provider/callback', to: 'sessions#create'
   post '/auth/:provider/callback', to: 'sessions#create'
 
@@ -19,5 +19,7 @@ Rails.application.routes.draw do
   resources :folders, only: [:index, :show, :create, :update, :destroy], defaults: {format: :json}
   resources :docs, defaults: {format: :json}
   get "docs/:id/download", to: "docs#download"
+  get "docs/:id/delete", to: "docs#delete"
+
 
 end

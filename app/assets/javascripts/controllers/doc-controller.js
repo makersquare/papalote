@@ -1,5 +1,5 @@
-app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocService', 'Download', '$location',
-  function($scope, Doc, $timeout, $route, DocService, Download, $location) {
+app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocService', 'Download', '$location', 'Delete',
+  function($scope, Doc, $timeout, $route, DocService, Download, $location, Delete) {
 
   $scope.id = $route.current.params.id;
   $scope.doc = Doc.get({id: $route.current.params.id});
@@ -29,7 +29,9 @@ app.controller('DocController', ['$scope','Doc', '$timeout', '$route','DocServic
 
   $scope.downloadFile = function(doc) {
     DocService.updateDoc(doc);
-    Download.get({id: $scope.id}, function(){
+    Download.get({id: $scope.id}, function(data){
+      console.log(data);
+      Delete.get({id: $scope.id, name: data.name});
     });
   };
 
