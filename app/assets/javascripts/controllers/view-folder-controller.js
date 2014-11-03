@@ -10,12 +10,8 @@ app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', '
     $scope.folderDocs.$promise.then(function(data){
       $scope.subfolders = data.folders;
       $scope.docs = data.docs;
-      if ($scope.parentFolder === null) {
-        $scope.backToParentView = false;
-      }
-      else {
-        $scope.backToParentView = true;
-      }
+      $scope.empty = (!$scope.subfolders.length && !$scope.docs.length);
+      $scope.backToParentView = !!$scope.parentFolder;
     });
 
     $scope.updateFolderName = function(folder) {
@@ -34,6 +30,6 @@ app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', '
       Folder.createDocForFolder({folder_id: folder.id, name: $scope.name});
     };
     $scope.newFolder = function(folder){
-      Folder.createFolder({name: $scope.name, parentfolder_id: folder.id})
-    }
+      Folder.createFolder({name: $scope.name, parentfolder_id: folder.id});
+    };
   }]);
