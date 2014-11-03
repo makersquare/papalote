@@ -1,6 +1,6 @@
 // This directive is used for doc-view.html
-app.directive('docDirective', ['Doc', '$route', '$timeout',
-  function(Doc, $route, $timeout) {
+app.directive('docDirective', ['Doc', '$route', '$timeout', 'User',
+  function(Doc, $route, $timeout, User) {
 
     return {
       templateUrl: "<%= asset_path('assets/templates/doc-textarea.html') %>",
@@ -11,7 +11,7 @@ app.directive('docDirective', ['Doc', '$route', '$timeout',
         var channel = dispatcher.subscribe($route.current.params.id);
         element.bind("keyup", function(event) {
           scope.doc.content = editor.getValue();
-          channel.trigger('change_doc',scope.doc);
+          dispatcher.trigger('change_doc',scope.doc);
         });
 
         // Theme selector (theme files found in 'ace-editor/')
@@ -25,6 +25,7 @@ app.directive('docDirective', ['Doc', '$route', '$timeout',
           document.getElementById('theme').value = 'twilight';
           editor.setTheme("ace/theme/twilight");
           editor.getSession().setTabSize(2);
+          scope.doc.currentUserId = User.currentUser.id;
           if (data !== undefined) {
             editor.setValue(data.content);
             editor.clearSelection();
@@ -73,11 +74,14 @@ app.directive('docDirective', ['Doc', '$route', '$timeout',
 
         // sets WebSocket listener to view changes made by another user on same document
         channel.bind('change_doc',function(data) {
-          var cursor = editor.getCursorPosition();
-          editor.getSession().setValue(data.content);
-          editor.selection.moveCursorTo(cursor.row, cursor.column);
-          // editor.clearSelection();
-          scope.doc.content = data.content;
+          if (scope.doc.currentUserId === data.currentUserId) {
+            return;
+          } else {
+            var cursor = editor.getCursorPosition();
+            editor.getSession().setValue(data.content);
+            editor.selection.moveCursorTo(cursor.row, cursor.column);
+            scope.doc.content = data.content;
+          }
         });
 
         scope.changeMode = function() {
