@@ -1,10 +1,8 @@
-app.controller('SearchResultsCtrl', ['$scope', '$routeParams','SearchFactory',
-  function($scope, $routeParams, SearchFactory) {
-    $scope.folders = [];
-    $scope.documents = [];
-
-    SearchFactory.find($routeParams.keywords).then(function(obj) {
-      $scope.folders = obj.data.folders;
-      $scope.documents = obj.data.docs;
-    }); 
+app.controller('SearchResultsCtrl', ['$scope', 'SearchFactory',
+  function($scope, SearchFactory) {
+    $scope.results = SearchFactory.getResults;
+    $scope.orderByField = 'name';
+    $scope.reverseSort = true;
+    $scope.orderByDocField = 'name';
+    $scope.reverseDocSort = true;
 }]);

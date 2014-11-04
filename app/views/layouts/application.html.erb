@@ -16,9 +16,9 @@
       <div class="logo left">
         <a href="/">Papalote</a>
       </div>
-      <div class="search-bar">
-        <input class="med" type="text" placeholder="Search file or folder" ng-model="sq.keywords"/>
-        <a class="fa fa-search fa-2x" ng-href="#/search/?keywords={{sq.keywords}}"></a>
+      <div class="search-bar" ng-controller="SearchBarController">
+        <input ng-keypress="search($event)" class="med" type="text" placeholder="Search file or folder" ng-model="sq.keywords"/>
+        <a class="fa fa-search fa-2x" ng-click="clickSearch()"></a>
       </div>
       <div class="top-nav-bar right" ng-controller="NavBarController">
         <a href="#/folders/new" class="nav-link">
