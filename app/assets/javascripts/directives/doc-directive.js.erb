@@ -74,7 +74,7 @@ app.directive('docDirective', ['Doc', '$route', '$timeout', 'User',
 
         // sets WebSocket listener to view changes made by another user on same document
         channel.bind('change_doc',function(data) {
-          if (scope.doc.currentUserId === data.currentUserId) {
+          if (scope.doc.currentUserId === data.senderId) {
             return;
           } else {
             var cursor = editor.getCursorPosition();
