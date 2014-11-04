@@ -27,6 +27,7 @@
 
 # Ignore public folder
 /public/downloads
+/public/assets
 
 # Ignore bower components
 /vendor/assets/components

@@ -21,12 +21,13 @@
 //= require angular-mocks
 //= require angular-sanitize
 //= require angular-emoji-filter
+//= require ace-builds/src-min-noconflict/ace
+//= require angular-ui-ace
 //= require app
 //= require flow
 //= require ng-flow
 //= require websocket_rails/main
 //= require app.js.erb
-//= require ace-editor/ace.js
 //= require_tree ./controllers
 //= require_tree ./directives
 //= require_tree ./services
