@@ -26,7 +26,7 @@
         <a href="#/docs/new" class="nav-link">
           <i class="fa fa-file-text-o"> +</i></a>
         <div class="nav-link nav-user">
-          <span class="nav-username">{{user.name}}<i class="fa fa-sort-down"></i></span>
+          <span class="nav-username" ng-bind="user.name">...loading<i class="fa fa-sort-down"></i></span>
           <ul>
             <a href="/logout"><li ng-hide="guest"><i class="fa fa-sign-out"></i> Log Out</li></a>
             <a href="/login"><li ng-show="guest"><i class="fa fa-sign-in"></i> Log In</li></a>
