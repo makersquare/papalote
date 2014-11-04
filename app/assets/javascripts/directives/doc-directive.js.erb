@@ -27,8 +27,6 @@ app.directive('docDirective', ['Doc', '$route', '$timeout',
           editor = ace.edit("editor");
           // Set Default Theme
           scope.theme = "tomorrow_night";
-          // Set Choose Language Text
-          scope.mode = "plain_text";
           editor.setTheme("ace/theme/tomorrow_night");
           editor.getSession().setTabSize(2);
           if (data !== undefined) {
@@ -36,6 +34,8 @@ app.directive('docDirective', ['Doc', '$route', '$timeout',
             editor.clearSelection();
             setMode(data);
           } else {
+            // Set Choose Language Text
+            scope.mode = "plain_text";
             editor.setValue("");
           }
         };
