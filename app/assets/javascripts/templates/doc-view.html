@@ -14,4 +14,15 @@
     <div class="editor" doc-directive></div>
     <button ng-click="saveDoc(doc)" class="grey">Save</button>
   </div>
+  <div class="chat-widget" ng-show="chatContainer">
+    <div class="chat-widget-bar clickable" ng-show="showChat" ng-click="toggleChatDisplay()">
+      Chat
+    </div>
+    <div class="chat-widget-display" ng-hide="showChat">
+      <div class="chat-widget-header clickable" ng-click="toggleChatDisplay()">
+        Chat
+      </div>
+      <chat-directive>
+    </div>
+  </div>
 </div>

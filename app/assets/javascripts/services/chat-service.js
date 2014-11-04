@@ -14,6 +14,8 @@ app.factory('ChatService', ['Socket', 'User', function(Socket, User) {
   var messages = [];
   var emitEventName = "chat message";
   var receiveEventName = "receive message";
+  var connectError = "connect_error";
+  var joinRoom = "join room";
 
   return {
     sendMessage: function(message) {
@@ -23,16 +25,23 @@ app.factory('ChatService', ['Socket', 'User', function(Socket, User) {
         message
       );
     },
-    setSocketListener: function() {
+    setSocketListener: function(room) {
       Socket.on(receiveEventName, function(message) {
         messages.push(message);
       });
-      Socket.on('connect_error', function(){
+      Socket.on(connectError, function(){
         messages.push({
           user: User.currentUser.name,
           message: 'Failed to connect to the chat server...'
         });
       });
+      Socket.emit(
+        joinRoom,
+        room
+      );
+    },
+    resetMessages: function(){
+      messages.length = 0;
     },
     messages: messages
   }

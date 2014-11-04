@@ -20,9 +20,7 @@
         <input class="med" type="text" placeholder="Search file or folder" ng-model="sq.keywords"/>
         <a class="fa fa-search fa-2x" ng-href="#/search/?keywords={{sq.keywords}}"></a>
       </div>
-      <div class="top-nav-bar right">
-        <a href="#/test-chat" class="nav-link">
-          <i class="fa fa-comments"></i></a>
+      <div class="top-nav-bar right" ng-controller="NavBarController">
         <a href="#/folders/new" class="nav-link">
           <i class="fa fa-folder"> +</i></a>
         <a href="#/docs/new" class="nav-link">

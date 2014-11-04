@@ -33,9 +33,6 @@ app.config(["$routeProvider", function($routeProvider){
     templateUrl: "<%= asset_path('templates/show-folder-view.html') %>",
     controller: "ViewFolderController"
   })
-  .when('/test-chat', {
-    templateUrl: "<%= asset_path('templates/test-chat.html.erb') %>"
-  })
   .when('/search', {
     templateUrl: "<%= asset_path('templates/show-search.html') %>",
     controller: "SearchResultsCtrl"

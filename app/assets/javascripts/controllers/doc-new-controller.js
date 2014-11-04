@@ -4,6 +4,7 @@ app.controller('DocNewController', ['$scope','Doc', '$timeout', '$route', 'DocSe
   $scope.saveComplete = false;
   $scope.titleEditDisable = false;
   $scope.downloadDoc = false;
+  $scope.chatContainer = false;
 
   $scope.saveDoc = function(doc) {
     DocService.newDocSave(doc);
