@@ -2,8 +2,8 @@
 ace.config.set("workerPath", "/ace-editor");
 ace.config.set("modePath", "/ace-editor");
 ace.config.set("themePath", "/ace-editor");
-app.directive('docDirective', ['Doc', '$route', '$timeout',
-  function(Doc, $route, $timeout) {
+app.directive('docDirective', ['Doc', '$route', 'User',
+  function(Doc, $route, User) {
 
     return {
       templateUrl: "<%= asset_path('templates/doc-textarea.html') %>",
@@ -14,7 +14,7 @@ app.directive('docDirective', ['Doc', '$route', '$timeout',
         var channel = dispatcher.subscribe($route.current.params.id);
         element.bind("keyup", function(event) {
           scope.doc.content = editor.getValue();
-          channel.trigger('change_doc',scope.doc);
+          dispatcher.trigger('change_doc',scope.doc);
         });
 
         // Theme selector (theme files found in 'ace-editor/')
@@ -25,6 +25,7 @@ app.directive('docDirective', ['Doc', '$route', '$timeout',
         // creates editor view based upon passed in mode (e.g. ruby, javascript, etc.)
         var loadFile = function(data) {
           editor = ace.edit("editor");
+          scope.doc.currentUserId = User.currentUser.id;
           // Set Default Theme
           scope.theme = "tomorrow_night";
           editor.setTheme("ace/theme/tomorrow_night");
@@ -79,11 +80,12 @@ app.directive('docDirective', ['Doc', '$route', '$timeout',
 
         // sets WebSocket listener to view changes made by another user on same document
         channel.bind('change_doc',function(data) {
-          var cursor = editor.getCursorPosition();
-          editor.getSession().setValue(data.content);
-          editor.selection.moveCursorTo(cursor.row, cursor.column);
-          // editor.clearSelection();
-          scope.doc.content = data.content;
+          if (scope.doc.currentUserId !== data.senderId) {
+            var cursor = editor.getCursorPosition();
+            editor.getSession().setValue(data.content);
+            editor.selection.moveCursorTo(cursor.row, cursor.column);
+            scope.doc.content = data.content;
+          }
         });
 
         scope.changeMode = function() {
