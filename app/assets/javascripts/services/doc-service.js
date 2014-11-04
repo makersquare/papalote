@@ -1,4 +1,4 @@
-app.factory('DocService', ['$location', 'Doc', function($location, Doc) {
+app.factory('DocService', ['$location', 'Doc', '$http', function($location, Doc, $http) {
   return {
     lineNumber: 0,
     newDocSave: function(doc) {
@@ -11,6 +11,12 @@ app.factory('DocService', ['$location', 'Doc', function($location, Doc) {
     },
     newDoc: function() {
       $location.path('/docs/new');
+    },
+    createTempFile: function(id) {
+      $http.get('/docs/' + id + '/createDocFile').
+      success(function(){
+        $http.get('/docs/' + id + '/deleteDocFile')
+      });
     }
   };
 }]);
