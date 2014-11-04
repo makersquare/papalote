@@ -26,6 +26,7 @@ app.factory('ChatService', ['Socket', 'User', function(Socket, User) {
       );
     },
     setSocketListener: function(room) {
+      Socket.removeAllListeners(receiveEventName);
       Socket.on(receiveEventName, function(message) {
         messages.push(message);
       });

@@ -3,6 +3,7 @@ app.controller('ChatController', ['$scope', '$routeParams', 'ChatService',
     ChatService.resetMessages();
     $scope.messages = ChatService.messages;
     $scope.id = $routeParams.id;
+    $scope.glued = true;
 
     $scope.sendMessage = function(data) {
       data.room = $routeParams.id;

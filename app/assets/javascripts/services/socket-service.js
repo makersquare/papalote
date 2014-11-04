@@ -43,6 +43,9 @@ app.factory('Socket', ['$rootScope', function($rootScope){
           callback.apply(socket, args);
         }
       });
+    },
+    removeAllListeners: function(eventName){
+      socket.removeAllListeners(eventName);
     }
   };
 }]);

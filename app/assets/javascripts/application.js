@@ -23,6 +23,7 @@
 //= require angular-emoji-filter
 //= require ace-builds/src-min-noconflict/ace
 //= require angular-ui-ace
+//= require angularjs-scroll-glue-Luegg
 //= require app
 //= require flow
 //= require ng-flow
