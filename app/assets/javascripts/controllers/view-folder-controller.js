@@ -4,6 +4,7 @@ app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', '
     $scope.folder.$promise.then(function(data){
       $scope.parentFolder = data.parentfolder_id;
       $scope.currentFolder = data;
+      $scope.input = {folder: $scope.currentFolder};
     });
     $scope.backToParentView = false;
     $scope.folderDocs = Folder.folderDocResource.get({folder_id: $routeParams["id"]});
@@ -26,10 +27,13 @@ app.controller('ViewFolderController', ['$scope', '$routeParams', '$location', '
     $scope.findParentFolder = function(folder) {
       $location.path('/folders/' + folder.parentfolder_id);
     };
-    $scope.newDoc = function(folder){
-      Folder.createDocForFolder({folder_id: folder.id, name: $scope.name});
+    $scope.newDoc = function(input) {
+      Folder.createDocForFolder({folder_id: input.folder.id, name: input.name});
     };
-    $scope.newFolder = function(folder){
-      Folder.createFolder({name: $scope.name, parentfolder_id: folder.id});
+    $scope.newFolder = function(input) {
+      Folder.createFolder({name: input.name, parentfolder_id: input.folder.id});
+    };
+    $scope.newDocOrFolder = function(input) {
+      Folder.createDocOrFolder(input);
     };
   }]);

@@ -23,6 +23,14 @@ app.factory('Folder', ['$resource', '$location', 'DocService',
     },
     createDocForFolder: function(doc) {
       DocService.newDocSave(doc);
+    },
+    createDocOrFolder: function(info){
+      if (info.name.indexOf('.')!== -1) {
+        DocService.newDocSave({name: info.name, folder_id: info.folder.id});
+      }
+      else {
+        this.createFolder({name: info.name, parentfolder_id: info.folder.id});
+      }
     }
   };
 }]);
