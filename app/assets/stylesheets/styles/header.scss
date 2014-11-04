@@ -4,6 +4,22 @@
   .logo {
     margin: 15px 35px;
   }
+  .search-bar {
+    width: 30%;
+    margin: 15px 35px;
+    float: left;
+    display: inline-block;
+    position: relative;
+    .fa-search {
+      display: inline-block;
+      position: absolute;
+      padding: 10px;
+      top: 2px;
+      right: 2px;
+      background: $light-grey;
+      color: $font-med;
+    }
+  }
   .top-nav-bar {
     .nav-link {
       text-align: center;

@@ -1,8 +1,7 @@
 class SearchController < ApplicationController
   def index
-    @folders = Folder.where(name: params[:keywords]) 
-    @docs = Doc.where(name: params[:keywords])
-  
-    render json: {folders: @folders, docs: @docs}
+    result = Retrieve.search(params[:keywords])
+    render json: result
   end
 end
+
