@@ -12,6 +12,8 @@ app.controller('DocController', ['$scope','Doc', '$timeout', '$route',
   $scope.saveComplete = false;
   $scope.downloadDoc = true;
   $scope.backToParentView = true;
+  $scope.chatContainer = true;
+  $scope.showChat = true;
 
   $scope.saveDoc = function(doc) {
     DocService.updateDoc(doc);
@@ -38,5 +40,9 @@ app.controller('DocController', ['$scope','Doc', '$timeout', '$route',
 
   $scope.findParentFolder = function(){
     $location.path('/folders/' + currentFolderId);
+  };
+
+  $scope.toggleChatDisplay = function(){
+    $scope.showChat = !$scope.showChat;
   };
 }]);
