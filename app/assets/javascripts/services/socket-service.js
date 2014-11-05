@@ -22,8 +22,8 @@
  *    the chat server. A callback is executed if provided on success.
  */
 
-app.factory('Socket', ['$rootScope', function($rootScope){
-  var url = window.location.hostname + ':8080';
+app.factory('Socket', ['$rootScope', 'constants', function($rootScope, constants){
+  var url = constants.CHAT_SERVER_URL;
   var socket = io.connect(url , {
     reconnection: false
   });

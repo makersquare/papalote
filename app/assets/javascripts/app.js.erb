@@ -8,6 +8,10 @@
 var app = angular.module('mksDriveApp',
   ['ngResource', 'ngRoute', 'ngAnimate', 'ngSanitize', 'flow', 'emoji', 'ui.ace']);
 
+app.constant('constants',{
+  "CHAT_SERVER_URL": "<%= Rails.application.config.chat_server %>"
+});
+
 app.config(["$routeProvider", function($routeProvider){
 
   $routeProvider.when("/", {
