@@ -16,17 +16,23 @@
         <div ng-show='empty'>
           <p><em>This folder is currently empty.</em></p>
         </div>
-        <div ng-repeat="doc in docs">
-          <p ng-click="findDoc(doc)" class="clickable">
+        <div ng-repeat="doc in docs" id='{{doc.id}}'>
+          <div ng-click="findDoc(doc)" class="clickable file-show">
             <i class="fa fa-file fa-2x"></i>
             {{ doc.name }}
-          </p>
+          </div>
+          <div class="file-show">
+            <a class='delete-btn' href='#/folders/{{folder.id}}' ng-click='deleteDoc(doc)'><i class="fa fa-trash"></i></a>
+          </div>
         </div>
-        <div ng-repeat="subfolder in subfolders">
-          <p ng-click="findSubFolder(subfolder)" class="clickable">
+        <div ng-repeat="subfolder in subfolders" id='{{subfolder.id}}'>
+          <div ng-click="findSubFolder(subfolder)" class="clickable file-show">
           <i class="fa fa-folder fa-2x"></i>
           {{ subfolder.name }}
-          </p>
+          </div>
+          <div class="file-show">
+            <a class='delete-btn' href='#/folders/{{folder.id}}' ng-click='deleteFolder(subfolder)'><i class="fa fa-trash"></i></a>
+          </div>
         </div>
       </div>
       <form ng-submit="newDocOrFolder(input)">

@@ -31,6 +31,10 @@ app.factory('Folder', ['$resource', '$location', 'DocService',
       else {
         this.createFolder({name: info.name, parentfolder_id: info.folder.id});
       }
+    }, 
+    deleteFolder: function(folder) {
+      var deleteFolder = new folderResource(folder);
+      deleteFolder.$delete();
     }
   };
 }]);
