@@ -1,8 +1,8 @@
-/** 
+/**
  * $rootScope is the parent scope of all scopes. We use the $apply
  *    because we are executing an expression in angular from outside
  *    of the angular framework. Since the DOM is looking at controller's
- *    scope to update its variables, and the scope is a child of the 
+ *    scope to update its variables, and the scope is a child of the
  *    root scope, we must attach the data from our node chat server
  *    to the root scope. After the $apply call, Angular performs a
  *    $digest cycle on the root scope, which propogates throughout all
@@ -24,6 +24,7 @@
 
 app.factory('Socket', ['$rootScope', 'constants', function($rootScope, constants){
   var url = constants.CHAT_SERVER_URL;
+
   var socket = io.connect(url , {
     reconnection: false
   });
