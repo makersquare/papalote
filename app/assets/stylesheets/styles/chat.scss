@@ -3,13 +3,19 @@
 
   .chat-messages {
     border: 1px solid $light-grey-border;
-    height: 350px;
+    height: 335px;
+    width: 100%;
     margin: 20px 0;
     padding: 10px;
     ul {
       list-style: none;
     }
-    overflow: auto;
+    overflow-y: auto;
+    word-wrap: break-word;
+  }
+
+  .emoji-helper {
+    float: left;
   }
 }
 
@@ -18,6 +24,7 @@
   float: right;
   bottom: 0px;
   right: 0px;
+  z-index: 1;
 
   .chat-widget-bar {
     text-align: center;
@@ -38,5 +45,6 @@
 
   .chat-widget-display {
     background-color: $light-grey;
+    width: 450px;
   }
 }

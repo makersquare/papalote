@@ -6,7 +6,8 @@
 
 
 var app = angular.module('mksDriveApp',
-  ['ngResource', 'ngRoute', 'ngAnimate', 'ngSanitize', 'flow', 'emoji', 'ui.ace']);
+  ['ngResource', 'ngRoute', 'ngAnimate', 'ngSanitize', 'flow', 'emoji', 'ui.ace',
+  'luegg.directives']);
 
 app.constant('constants',{
   "CHAT_SERVER_URL": "<%= Rails.application.config.chat_server %>"
