@@ -22,7 +22,7 @@
             {{ doc.name }}
           </div>
           <div class="file-show">
-            <a class='delete-btn' href='#/folders/{{folder.id}}' ng-click='deleteDoc(doc)'><i class="fa fa-trash"></i></a>
+            <a class='delete-btn' href='#/folders/{{folder.id}}' ng-click='deleteDoc(doc)'><i class="fa fa-trash-o"></i></a>
           </div>
         </div>
         <div ng-repeat="subfolder in subfolders" id='{{subfolder.id}}'>
@@ -31,7 +31,7 @@
           {{ subfolder.name }}
           </div>
           <div class="file-show">
-            <a class='delete-btn' href='#/folders/{{folder.id}}' ng-click='deleteFolder(subfolder)'><i class="fa fa-trash"></i></a>
+            <a class='delete-btn' href='#/folders/{{folder.id}}' ng-click='deleteFolder(subfolder)'><i class="fa fa-trash-o"></i></a>
           </div>
         </div>
       </div>
