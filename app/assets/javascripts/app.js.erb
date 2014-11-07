@@ -42,6 +42,10 @@ app.config(["$routeProvider", function($routeProvider){
     templateUrl: "<%= asset_path('templates/show-search.html') %>",
     controller: "SearchResultsCtrl"
   })
+  .when('/users/:owner_id/contents', {
+    templateUrl: "<%= asset_path('templates/user-view.html') %>",
+    controller: "UserController"
+  })
   .otherwise({
     redirectTo: "/"
   })

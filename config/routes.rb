@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   get "docs/:id/createDocFile", to: "docs#createDocFile"
   get "docs/:id/deleteDocFile", to: "docs#deleteDocFile"
   get '/users/current_user', to: 'users#current_user'
+  get "users/:owner_id/contents", to: "users#user_contents"
+
 end

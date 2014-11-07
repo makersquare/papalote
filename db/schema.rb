@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031005014) do
+ActiveRecord::Schema.define(version: 20141103163108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20141031005014) do
     t.integer  "folder_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "owner_id"
   end
 
   create_table "folders", force: true do |t|
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 20141031005014) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parentfolder_id"
+    t.integer  "owner_id"
   end
 
   create_table "users", force: true do |t|

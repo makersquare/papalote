@@ -1,7 +1,9 @@
-app.factory('DocService', ['$location', 'Doc', '$http', function($location, Doc, $http) {
+app.factory('DocService', ['$location', 'Doc', 'User', '$http',
+  function($location, Doc, User, $http) {
   return {
     lineNumber: 0,
     newDocSave: function(doc) {
+      doc.owner_id = User.currentUser.id
       Doc.save(doc, function(data) {
         $location.path('/docs/' + data.id);
       });
