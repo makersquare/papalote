@@ -31,3 +31,6 @@
 
 # Ignore bower components
 /vendor/assets/components
+
+#ignore notes
+/notes.md
