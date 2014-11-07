@@ -1,12 +1,40 @@
-<h3>Show Search Results here</h3>
-<h4>Folders</h4>
+<div class="search-container">
+  <h3>Search Results</h3>
+  <hr>
+  <h4>Folders</h4>
+  <table class="responsive">
+    <thead>
+      <tr>
+        <th width="200"><a class="thead" href="" ng-click="orderByField='name'; reverseSort = !reverseSort;">Folder Name</a></th>
+        <th width="200"><a class="thead" href="" ng-click="orderByField='created_at'; reverseSort = !reverseSort;">created at</a></th>
+        <th width="200"><a class="thead" href="" ng-click="orderByField='updated_at'; reverseSort = !reverseSort;">updated at</a></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="result in results.folders | orderBy:orderByField:reverseSort">
+        <td><a href='#/folders/{{result.id}}'>{{result.name}}</a></td>
+        <td>{{result.created_at | date: 'medium'}}</td>
+        <td>{{result.updated_at | date: 'medium'}}</td>
+      </tr>
+    </tbody>
+  </table>
 
-<ul>
-  <li ng-repeat="result in folders track by $index"><a href='#/folders/{{result.id}}'>{{result.name}}</a></li>
-</ul>
+  <h4>Documents</h4>
+  <table class="responsive">
+    <thead>
+      <tr>
+        <th width="200"><a class="thead" href="" ng-click="orderByDocField='name'; reverseDocSort = !reverseDocSort;">Document Name</a></th>
+        <th width="200"><a class="thead" href="" ng-click="orderByDocField='created_at'; reverseDocSort = !reverseDocSort;">created at</a></th>
+        <th width="200"><a class="thead" href="" ng-click="orderByDocField='updated_at'; reverseDocSort = !reverseDocSort;">updated at</a></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="result in results.documents | orderBy:orderByDocField:reverseDocSort">
+        <td><a href='#/docs/{{result.id}}'>{{result.name}}</a></td>
+        <td>{{result.created_at | date: 'medium'}}</td>
+        <td>{{result.updated_at | date: 'medium'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-<h4>Documents</h4>
-
-<ul>
-  <li ng-repeat="result in documents track by $index"><a href='#/folders/{{result.id}}'>{{result.name}}</a></li>
-</ul>

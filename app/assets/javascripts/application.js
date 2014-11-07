@@ -29,6 +29,7 @@
 //= require ng-flow
 //= require websocket_rails/main
 //= require app.js.erb
+//= require responsive-tables.js
 //= require_tree ./controllers
 //= require_tree ./directives
 //= require_tree ./services
