@@ -1,8 +1,7 @@
 ## User Stories
 
-1. Users can create folders that store documents
+1. Users can create documents
   ### rails
-
   ```ruby 
   def create
     if params['file']
@@ -35,6 +34,59 @@
   }]);
   ```
 2. Users can edit a document and have its syntax highlighted based on language
+  ### angular
+  ```javascript
+  app.factory('DocService', ['$location', 'Doc', 'User', '$http',
+    function($location, Doc, User, $http) {
+      return {
+        updateDoc: function(doc) {
+          Doc.update(doc);
+        },
+      }
+    };
+  }]);
+  ```
+
+  ```javascript start:25
+  // creates editor view based upon passed in mode (e.g. ruby, javascript, etc.)
+  var loadFile = function(data) {
+    editor = ace.edit("editor");
+    scope.doc.currentUserId = User.currentUser.id;
+    // Set Default Theme
+    scope.theme = "tomorrow_night";
+    editor.setTheme("ace/theme/tomorrow_night");
+    editor.getSession().setTabSize(2);
+    if (data !== undefined) {
+      editor.setValue(data.content);
+      editor.clearSelection();
+      setMode(data);
+    } else {
+      // Set Choose Language Text
+      scope.mode = "plain_text";
+      editor.setValue("");
+    }
+  };
+
+  // sets programming language based on file extension
+  var setMode = function(data) {
+    if (data.name.slice(data.name.indexOf('.')+1) === 'js') {
+      editor.getSession().setMode("ace/mode/javascript");
+      document.getElementById('mode').value = 'javascript';
+    } else if (data.name.slice(data.name.indexOf('.')+1) === 'rb') {
+      editor.getSession().setMode("ace/mode/ruby");
+      document.getElementById('mode').value = 'ruby';
+    } else if (data.name.slice(data.name.indexOf('.')+1) === 'java') {
+      editor.getSession().setMode("ace/mode/java");
+      document.getElementById('mode').value = 'java';
+    } else if (data.name.slice(data.name.indexOf('.')+1) === 'html') {
+      editor.getSession().setMode("ace/mode/html");
+      document.getElementById('mode').value = 'html';
+    } else if (data.name.slice(data.name.indexOf('.')+1) === 'css') {
+      editor.getSession().setMode("ace/mode/css");
+      document.getElementById('mode').value = 'css';
+    }
+  };
+  ```
 3. Multiple users can view the same document and edit it in real time
 4. Users can chat on a document page
 5. Users can login as a guest or through Github to have their documents persist on the server
