@@ -3,7 +3,7 @@
 1. Users can create folders that store documents
   ### rails
 
-  ```ruby 
+  ```ruby https://github.com/makersquare/papalote/blob/readme_group_two/app/controllers/docs_controller.rb
   def create
     if params['file']
       new_doc =  {
