@@ -36,8 +36,9 @@ Papalote also supports saving folders and files when logged in. You'll also find
 
 See it in action:  
 
-![image](https://www.dropbox.com/s/mn10t1edq5hwisr/Screenshot%202014-11-07%2016.59.11.png)
-![image](https://www.dropbox.com/s/8c1zwwvxiyekijm/Screenshot%202014-11-07%2016.57.30.png?dl=0)
+![image](http://i.imgur.com/wE8FOZT.png =400x280)  
+
+![image](http://i.imgur.com/4AwdlGe.png =400x280)
 ## Getting Started
 
 1. run `bundle install`
