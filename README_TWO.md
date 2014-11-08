@@ -3,7 +3,7 @@
 1. Users can create folders that store documents
   ### rails
 
-  ```ruby https://github.com/makersquare/papalote/blob/readme_group_two/app/controllers/docs_controller.rb Source Article
+  ```ruby 
   def create
     if params['file']
       new_doc =  {
@@ -25,9 +25,15 @@
     end
   end
   ```
-
-
   ### angular
+  ```javascript
+  app.factory('Doc', ['$resource', function($resource) {
+    return $resource('/docs/:id',
+      {id: '@id'},
+      {update: {method: "PATCH"}}
+    );
+  }]);
+  ```
 2. Users can edit a document and have its syntax highlighted based on language
 3. Multiple users can view the same document and edit it in real time
 4. Users can chat on a document page
