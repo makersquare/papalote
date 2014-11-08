@@ -49,7 +49,7 @@
   }]);
   ```
 
-  ```javascript start:25
+  ```javascript
   // creates editor view based upon passed in mode (e.g. ruby, javascript, etc.)
   var loadFile = function(data) {
     editor = ace.edit("editor");
