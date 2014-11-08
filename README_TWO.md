@@ -1,6 +1,7 @@
 ## User Stories
 
 1. Users can create documents
+
   ### rails
   ```ruby 
   def create
@@ -34,6 +35,7 @@
   }]);
   ```
 2. Users can edit a document and have its syntax highlighted based on language
+
   ### angular
   ```javascript
   app.factory('DocService', ['$location', 'Doc', 'User', '$http',
