@@ -1,7 +1,44 @@
-## SF-Cohort 2 Final Project
+## Papalote
 
 ## Build Status
 [ ![Codeship Status for makersquare/papalote](https://www.codeship.io/projects/b53e2560-4118-0132-e238-5e14300eaef6/status?branch=dev)](https://www.codeship.io/projects/44095)
+
+##Overview
+#### [Papalote](http://code.mks.io) is a real-time collaborative code editor  
+This was the final project of MakerSquare cohort SF2.
+It was used as a platform to explore new technologies and learn to work in a large team (9 collaborators and 2 project managers). We learned to separate tasks, collaborate, and merge code. We learned best practice project flow including daily scrum meetings, product sprints, and dealing with feature creep.
+
+##Purpose
+To learn how to create a web application using the following technology.
+
+* Ruby on Rails
+* AngularJS
+* Websockets
+* OAuth
+* Sass
+* Foundation
+* Git/Github
+  
+Further, the application will hopefully be useful to conduct coding interviews for future applicants to the MakerSquare program. Or to disceminate and/or live edit code during class.
+
+##Try it out!
+The latest build of papalote is available [here](http://code.mks.io). Full functionality is only available in Chrome and Firefox at the moment.  
+  
+1. Open papalote
+* Click the new file icon at the top of the page
+* Click on 'Document Name' and type in a filename with the extension of your favorite language (e.g. 'test.js')
+* Click save!
+* Send the url of your page to a friend
+* Write some code! 
+* Don't forget to save when you're done.  
+  
+Papalote also supports saving folders and files when logged in. You'll also find a file-specific chat box on the bottom right!
+
+See it in action:  
+
+![image](http://i.imgur.com/wE8FOZT.png =400x280)  
+
+![image](http://i.imgur.com/4AwdlGe.png =400x280)
 ## Getting Started
 
 1. run `bundle install`
