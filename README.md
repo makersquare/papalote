@@ -8,6 +8,15 @@
 This was the final project of MakerSquare cohort SF2.
 It was used as a platform to explore new technologies and learn to work in a large team (9 collaborators and 2 project managers). We learned to separate tasks, collaborate, and merge code. We learned best practice project flow including daily scrum meetings, product sprints, and dealing with feature creep.
 
+##Table of Contents
+* [Purpose](#purpose)
+* [Try it out](#try-it-out)
+* [Getting Started](#getting-started)
+* [Git Workflow](#git-workflow)
+* [Git Commands](#git-commands)
+* [Environments](#environments)
+* [Team Members](#team-members)
+
 ##Purpose
 To learn how to create a web application using the following technology.
 
@@ -21,7 +30,7 @@ To learn how to create a web application using the following technology.
   
 Further, the application will hopefully be useful to conduct coding interviews for future applicants to the MakerSquare program. Or to disceminate and/or live edit code during class.
 
-##Try it out!
+##Try it out
 The latest build of papalote is available [here](http://code.mks.io). Full functionality is only available in Chrome and Firefox at the moment.  
   
 1. Open papalote
